@@ -98,38 +98,38 @@ class _HGeologyAppState extends ConsumerState<HGeologyApp> {
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
         home: const HomePage(),
+        // Uncomment this to enable force login
+        //
+        // home: StreamBuilder<User?>(
+        //   stream: authManager?.userStream,
+        //   builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+        //     if (snapshot.connectionState == ConnectionState.active) {
+        //       if (snapshot.data != null) {
+        //         // User is logged in, return your home layout
+        //         return const HomePage();
+        //       } else {
+        //         // User is not logged in
+        //         return LoginScreen(onLoginSuccess: () {
+        //           setState(() {
+        //             authManager = AuthProvider();
+        //           });
+        //         });
+        //       }
+        //     } else {
+        //       // Return the LoginScreen if an error happens or while waiting for the connection
+        //       return const Scaffold(
+        //           body: Center(
+        //         child: SizedBox(
+        //           height: 50,
+        //           width: 50,
+        //           child: CircularProgressIndicator(),
+        //         ),
+        //       ));
+        //     }
+        //   },
+        // ),
       );
     });
-    // Uncomment this to enable force login
-    //
-    // home: StreamBuilder<User?>(
-    //   stream: authManager?.userStream,
-    //   builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
-    //     if (snapshot.connectionState == ConnectionState.active) {
-    //       if (snapshot.data != null) {
-    //         // User is logged in, return your home layout
-    //         return const HomePage();
-    //       } else {
-    //         // User is not logged in
-    //         return LoginScreen(onLoginSuccess: () {
-    //           setState(() {
-    //             authManager = AuthProvider();
-    //           });
-    //         });
-    //       }
-    //     } else {
-    //       // Return the LoginScreen if an error happens or while waiting for the connection
-    //       return const Scaffold(
-    //           body: Center(
-    //         child: SizedBox(
-    //           height: 50,
-    //           width: 50,
-    //           child: CircularProgressIndicator(),
-    //         ),
-    //       ));
-    //     }
-    //   },
-    // ),
   }
 }
 

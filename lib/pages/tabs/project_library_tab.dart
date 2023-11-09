@@ -27,7 +27,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(t.mediaLibraryTab.tabName),
+      title: Text("项目"),
       leading: PopupMenuButton<String>(
         icon: const Icon(Icons.sort_rounded),
         onSelected: (String value) {

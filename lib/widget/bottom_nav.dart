@@ -87,7 +87,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             } else {
               // Smaller screen
               return SizedBox(
-                height: 50,
+                height: 76,
                 child: Row(
                   children: items.map((item) {
                     int index = items.indexOf(item);
@@ -127,8 +127,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                // const SizedBox(height: 6),
-                                // item.title,
+                                const SizedBox(height: 6),
+                                Text(item.title),
                               ]),
                         ),
                       ),

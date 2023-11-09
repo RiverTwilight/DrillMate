@@ -108,7 +108,7 @@ void showIntroductionBottomSheet(BuildContext context) {
 }
 
 enum HomeTab {
-  library(Icons.ondemand_video_rounded),
+  library(Icons.file_copy),
   review(Icons.import_contacts_rounded),
   statistic(Icons.data_saver_off_rounded),
   more(Icons.widgets_rounded);
@@ -121,7 +121,7 @@ enum HomeTab {
 List<CustomBottomNavigationBarItem> bottomNavigationBarItems = [
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[0].icon,
-    title: t.mediaLibraryTab.tabName,
+    title: t.projectLibraryTab.tabName,
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[1].icon,

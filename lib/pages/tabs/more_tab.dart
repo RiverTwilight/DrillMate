@@ -107,37 +107,6 @@ class _MorePageState extends ConsumerState<MorePage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(children: [
-                        Text(
-                          t.appName,
-                          style: const TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        PlusBadge(
-                          size: 20,
-                        )
-                      ]),
-                      Text(
-                        userDataManager.userInfo['plus_expire_date'] == null
-                            ? t.general.nologin
-                            : userDataManager.isLifetimePlus
-                                ? t.moreTab.lifetime
-                                : (userDataManager
-                                            .userInfo['plus_expire_date'] <
-                                        DateTime.now().millisecondsSinceEpoch
-                                    ? t.general.expired
-                                    : convertUnixTimeToLocalDateString(
-                                        userDataManager
-                                            .userInfo['plus_expire_date'])),
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ],
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -324,8 +293,6 @@ class _MorePageState extends ConsumerState<MorePage>
                 physics:
                     const AlwaysScrollableScrollPhysics(), // This ensures the list is always scrollable
                 children: <Widget>[
-                  const SizedBox(height: 12),
-                  _buildAccountPart(ref),
                   // const SizedBox(height: 30),
                   _buildAdditionalPart(ref),
                   const SizedBox(height: 30),

@@ -1,398 +1,401 @@
 {
-	"locale": "English",
-	"appName": "ClipMemo",
+	"locale": "简体中文",
+	"appName": "道路勘探",
 	"general": {
-		"add": "Add",
-		"advanced": "Advanced",
-		"cancel": "Cancel",
-		"close": "Close",
-		"confirm": "Confirm",
-		"continueStr": "Continue",
-		"copy": "Copy",
-		"decline": "Decline",
-		"deleteStr": "Delete",
-		"done": "Done",
-		"edit": "Edit",
-		"error": "Error",
-		"email": "Email",
-		"example": "Example",
-		"finished": "Finished",
-		"hide": "Hide",
-		"next": "Next",
-		"off": "Off",
-		"on": "On",
-		"open": "Open",
-		"password": "Password",
-		"play": "Play",
-		"previous": "Previous",
-		"preview": "Preview",
-		"pause": "Pause",
-		"renamed": "Renamed",
-		"rename": "Rename",
-		"reset": "Reset",
-		"settings": "Settings",
-		"start": "Start",
-		"stop": "Stop",
-		"save": "Save",
-		"unchanged": "Unchanged",
-		"unknown": "Unknown",
-		"expired": "Expired",
-		"nologin": "Not Login",
-		"view": "View",
-		"learnMore": "Learn More...",
-		"language": "Language",
-		"noEligibilityHint": "You need to upgrade to Plus plan to use this feature."
+		"add": "添加",
+		"advanced": "高级",
+		"cancel": "取消",
+		"close": "关闭",
+		"confirm": "确认",
+		"continueStr": "继续",
+		"copy": "复制",
+		"decline": "拒绝",
+		"deleteStr": "删除",
+		"done": "完成",
+		"edit": "编辑",
+		"error": "错误",
+		"email": "电子邮件",
+		"example": "示例",
+		"finished": "已完成",
+		"hide": "隐藏",
+		"next": "下一个",
+		"off": "关闭",
+		"on": "打开",
+		"open": "打开",
+		"password": "密码",
+		"play": "播放",
+		"previous": "上一个",
+		"preview": "预览",
+		"pause": "暂停",
+		"renamed": "已重命名",
+		"rename": "重命名",
+		"reset": "重置",
+		"settings": "设置",
+		"start": "开始",
+		"stop": "停止",
+		"save": "保存",
+		"unchanged": "未改变",
+		"unknown": "未知",
+		"expired": "已过期",
+		"nologin": "未登录",
+		"view": "查看",
+		"learnMore": "了解更多...",
+		"language": "语言",
+		"noEligibilityHint": "你需要升级到 ClipMemo Plus 来使用此功能。"
 	},
 	"mediaLibraryTab": {
-		"tabName": "Library",
-		"emptyHint": "There is no media yet, add one",
+		"tabName": "媒体库",
+		"emptyHint": "暂无媒体，请添加",
 		"sortMethod": {
-			"name": "Sort by Name",
-			"recent": "Recently",
-			"date": "Sort by Date"
+			"name": "按名称排序",
+			"recent": "最近",
+			"date": "按日期排序"
 		}
 	},
-	"accountDetailPage": {
-		"title": "Account",
-		"info": {
-			"title": "Info"
-		},
-		"password": {
-			"oldPwd": "Old Password",
-			"newPwd": "New Password"
-		}
+	"projectLibraryTab": {
+		"tabName": "项目"
 	},
 	"memoLibraryPage": {
 		"title": "Memos"
 	},
+	"accountDetailPage": {
+		"title": "账户",
+		"info": {
+			"title": "属性"
+		},
+		"password": {
+			"oldPwd": "旧密码",
+			"newPwd": "新密码"
+		}
+	},
 	"mediaDetailPage": {
-		"playAll": "Play All Memos",
-		"stopPlayAll": "Stop Auto Play",
+		"playAll": "播放所有 Memo",
+		"stopPlayAll": "停止自动播放",
 		"transcript": {
-			"startBtn": "Start",
-			"transcribingStr": "Transcribing",
-			"tip": "Larger file make take longer time.",
-			"localLimitationHint": "Only local media file can be transcribed"
+			"startBtn": "开始",
+			"transcribingStr": "转录中",
+			"tip": "较大的文件可能需要更长的时间。",
+			"localLimitationHint": "仅支持转录本地音视频文件"
 		},
 		"rename": {
-			"confirmBtn": "Rename",
-			"label": "New Name"
+			"confirmBtn": "重命名",
+			"label": "新名称"
 		},
-		"noMediaError": "Can not find the media file. You can re-import it.",
+		"noMediaError": "找不到媒体文件。你可以重新导入。",
 		"appBarActions": {
-			"transcribe": "Transcribe",
-			"replace": "Replace Media"
+			"transcribe": "转录",
+			"replace": "替换媒体"
 		},
-		"limitationReachedHint": "Upgrade to Plus subscription to add more memoes.",
-		"startCaptureBtn": "Start Capture",
-		"loopModeSwitch": "Set loop mode",
-		"optionsBtn": "Options",
-		"loopBtn": "Loop",
+		"limitationReachedHint": "升级到 Plus 订阅以添加更多 Memo。",
+		"startCaptureBtn": "开始截取",
+		"loopModeSwitch": "设置循环模式",
+		"optionsBtn": "选项",
+		"loopBtn": "循环",
 		"options": {
-			"mediaSource": "Media Source: ",
-			"speed": "Speed: ",
-			"autoRestore": "Auto Restore Last Played Position",
-			"danmuku": "Danmuku"
+			"mediaSource": "媒体来源：",
+			"speed": "速度：",
+			"autoRestore": "自动恢复上次播放位置",
+			"danmuku": "弹幕"
 		},
 		"captureHint": {
-			"title": "What to capture?",
-			"expression": "Difficult or new phrase/slangs",
-			"phrase": "Graph, List or Mindmap",
-			"anything": "Anything you like"
+			"title": "截取什么？",
+			"expression": "困难或新的词汇/俚语/表达",
+			"phrase": "图表、划重点或者思维导图",
+			"anything": "你想保存的任何东西"
 		},
 		"share": {
-			"title": "Share",
+			"title": "分享",
 			"publishToStore": {
-				"title": "Publish to online showcase",
+				"title": "发布到商店",
 				"body": ""
 			},
 			"export": {
-				"title": "Export to file",
+				"title": "导出文件",
 				"body": ""
 			}
 		}
 	},
 	"statisticTab": {
-		"title": "Statistic",
-		"deleteConfirm": "Are you sure you want to delete this thing?",
-		"noDataHint": "No enough data yet.",
-		"totalBookmark": "Total Memos",
-		"totalReview": "Total Reviews",
+		"title": "统计",
+		"deleteConfirm": "你确定要删除此项吗？",
+		"noDataHint": "尚无足够数据。",
+		"totalBookmark": "书签数量",
+		"totalReview": "复习次数",
 		"quotes": [
-			"The beautiful thing about learning is that no one can take it away from you.",
-			"Learning never exhausts the mind, it only ignites it.",
-			"The more you learn, the more you'll realize how much you don't know.",
-			"Live as if you were to die tomorrow. Learn as if you were to live forever.",
-			"The only thing that is constant is learning. Embrace the journey.",
-			"Your future depends on what you learn today. Make the most of it.",
-			"Learning is an endless journey that opens new doors and opportunities.",
-			"The more you learn, the more places you'll go. Keep exploring.",
-			"Ignite your curiosity and fuel your passion for learning. The sky is the limit.",
-			"Learn, grow, succeed. Repeat."
+			"学习的美好之处在于，没有人能夺走它。",
+			"学习永不会耗尽心智，它只会点燃它。",
+			"你学得越多，你就越意识到你不知道的有多少。",
+			"生活就像你明天就要死去。学习就像你将永远活着。",
+			"唯一不变的事物是学习。",
+			"你的未来取决于你今天学到的东西。充分利用它。",
+			"学习是一次永无止境的旅程，为你打开新的大门和机会。",
+			"你学得越多，你走的地方就越多。继续探索。",
+			"点燃你的好奇心，激发你对学习的热情。天空是极限。",
+			"学习，成长，成功。重复。"
 		]
 	},
 	"reviewTab": {
-		"title": "Review",
-		"weekCheck": "This Week",
-		"dayCheck": "Today",
-		"comparedWithLastWeek": "Than last week",
-		"emptyHint": "No bookmarks yet.",
-		"playAnwser": "Play the anwser"
+		"title": "回顾",
+		"weekCheck": "本周",
+		"dayCheck": "今天",
+		"comparedWithLastWeek": "比上周",
+		"emptyHint": "暂无书签。",
+		"playAnwser": "查看答案"
 	},
 	"moreTab": {
-		"title": "More",
-		"lifetime": "Lifetime",
+		"title": "更多",
+		"lifetime": "永久",
 		"general": {
-			"title": "General",
-			"feedback": "Feedback",
-			"feedbackIntro": "We need you!",
-			"about": "About",
-			"aboutIntro": "Find the author and his more helpful products.",
-			"check101": "ClipMemo 101",
-			"check101Intro": "Get Tips & Tricks",
-			"brightness": "Brightness",
+			"title": "通用",
+			"feedback": "反馈",
+			"feedbackIntro": "我们需要你！",
+			"about": "关于",
+			"aboutIntro": "和作者聊聊，看看他的更多作品。",
+			"check101": "前往 ClipMemo 学院",
+			"check101Intro": "获取提示和帮助",
+			"brightness": "亮度",
 			"brightnessOptions": {
-				"system": "System",
-				"dark": "Dark",
-				"light": "Light"
+				"system": "跟随系统",
+				"dark": "深色模式",
+				"light": "浅色模式"
 			},
-			"color": "Color",
+			"color": "颜色",
 			"colorOptions": {
-				"system": "System"
+				"system": "系统"
 			},
-			"language": "Language",
+			"language": "语言",
 			"languageOptions": {
-				"system": "System"
+				"system": "系统"
 			}
 		},
 		"privilige": {
-			"review": "Review",
-			"unlimited": "Unlimited",
-			"sync": "Sync"
+			"review": "回顾",
+			"unlimited": "不限制",
+			"sync": "同步"
 		},
 		"actions": {
-			"rate": "Rate us",
-			"sync": "Backup & Restore",
-			"settings": "Settings"
+			"rate": "给我们评分",
+			"sync": "备份与恢复",
+			"settings": "设置"
 		}
 	},
 	"aboutPage": {
-		"title": "About",
-		"tagline": "Designed and Created by",
+		"title": "关于",
+		"tagline": "设计 & 开发",
 		"author": "RiverTwilight"
 	},
 	"collectionPage": {},
 	"purchasePage": {
-		"title": "Membership",
-		"restore": "Restore Purchase",
+		"title": "会员",
+		"restore": "恢复购买",
 		"intro": {
-			"review": "Get progress faster with Daily Review.",
-			"sync": "Access your notes and media across devices.",
-			"unlimited": "Add unlimited media and bookmarks."
+			"review": "通过每日回顾更快地取得进步。",
+			"sync": "在不同设备之间访问你的笔记和媒体。",
+			"unlimited": "添加无限媒体和书签。"
 		},
-		"loginHint": "For your peace of mind, logging in before purchasing a membership ensures that your payment is correctly allocated to your account. It also safeguards your membership privileges against any unexpected loss.",
-		"introTitle": "Record Faster, Learn Faster.",
-		"introBody": "Our mission is to bring everyone better education resource. While basic plan can meet most leaner's demand, you can try TalkReel Plus to gain a better, faster learning experience, and 8 special features.",
+		"loginHint": "为了你的安心，请在购买会员之前登录，以确保你能拥有购买内容。它还保护你的会员特权免受任何意外损失。",
+		"introTitle": "更快录制，更快学习。",
+		"introBody": "我们的使命是为每个人带来更好的教育资源。虽然基本计划可以满足大多数学习者的需求，但你可以尝试 TalkReel Plus 以获得更好、更快的学习体验，以及8个特殊功能。",
 		"features": {
-			"cloudSync": "Cloud sync",
-			"note": "Note",
-			"review": "Daily Review",
-			"tag": "Tag System",
-			"bookmark": "Bookmark",
-			"transcribe": "Auto Transcribe",
-			"speed": "Playback Speed",
-			"media": "Media",
-			"loop": "Loop",
-			"theme": "Theme Color"
+			"cloudSync": "云同步",
+			"note": "笔记",
+			"review": "每日回顾",
+			"tag": "标签系统",
+			"bookmark": "书签",
+			"transcribe": "自动转录",
+			"speed": "播放速度",
+			"media": "媒体",
+			"loop": "循环",
+			"theme": "主题颜色"
 		},
 		"redeem": {
-			"title": "Redeem",
-			"dialogTitle": "Redeem Offer Code",
-			"redeemSuccessHint": "Redeem Successfully."
+			"title": "兑换",
+			"dialogTitle": "兑换优惠码",
+			"redeemSuccessHint": "兑换成功。"
 		},
-		"unlimited": "Unlimited",
-		"alreadyPurchasedHint": "You are already a Plus member.",
+		"unlimited": "不限制",
+		"alreadyPurchasedHint": "你已经是 Plus 会员了。",
 		"purchaseHint": {
-			"beforePolicy": "Please check our ",
-			"policy": "policy",
-			"afterPolicy": " before purchasing. If you didn't receive your purchase, please ",
-			"contact": "contact us",
-			"afterContact": " at here."
+			"beforePolicy": "购买前请查看我们的",
+			"policy": "政策",
+			"afterPolicy": "。如果付款后你的订阅状态没有更新，请凭支付收据截图",
+			"contact": "联系我们",
+			"afterContact": "。"
 		}
 	},
 	"newMediaPage": {
-		"title": "Add to Library",
-		"customTab": "Custom",
-		"onlineTab": "Online",
-		"finishImport": "Imported Successfully",
-		"importError": "An error occured. Don't worry, it's not your fault.",
+		"title": "添加到库",
+		"customTab": "自定义",
+		"onlineTab": "在线",
+		"finishImport": "成功导入",
+		"importError": "发生了错误。别担心，这不是你的错。",
 		"source": {
 			"youtube": "YouTube",
 			"bilibili": "Bilibili",
-			"wechat": "WeChat",
+			"wechat": "微信",
 			"ted": "TED",
-			"localVideo": "Video",
-			"localAudio": "Audio",
-			"directUrl": "Source URL"
+			"localVideo": "视频",
+			"localAudio": "音频",
+			"directUrl": "文件链接"
 		},
 		"permission": {
-			"title": "Unlock More Features!",
-			"body": "Looks like you've been enjoying our app! To add more videos, consider upgrading to our Plus plan.",
-			"upgrade": "Learn More"
+			"title": "解锁更多功能！",
+			"body": "看来您一直在享受我们的应用！要添加更多视频，请考虑升级到我们的Plus计划。",
+			"upgrade": "了解更多"
 		},
 		"youtube": {
-			"fetchTitle": "Auto-fetch Title"
+			"fetchTitle": "自动获取标题"
 		},
 		"createCollection": {
-			"title": "New Collection"
+			"title": "新建合集"
 		},
-		"tedFile": "Select the downloaded file...",
-		"tedHelpBtn": "How to download TED video?",
-		"remoteFileHint": "You can add your favorite podcast show or video with URL. ClipMemo will not download them to your device.",
-		"bilibiliHint": "You can get the link by tapping the Share button on video page of Bilibili APP. On your PC or Mac, you can directly copy content of the address bar.",
-		"youtubeHint": "You can get the link by tapping the Share button on video page of YouTube APP.  On desktop you can directly copy content of the address bar."
+		"tedFile": "选择已下载的文件...",
+		"tedHelpBtn": "如何下载TED视频？",
+		"remoteFileHint": "你可以通过输入链接来添加播客节目或者视频文件。ClipMemo 不会下载文件到本地。",
+		"bilibiliHint": "轻触 Bilibili 客户端播放页面中的“分享”图标来获取视频链接，或者轻触分享页面的“更多”按钮直接分享到 ClipMemo。在 PC 或者 Mac 上，复制地址栏的文本即可获取链接。",
+		"youtubeHint": "轻触 YouTube 客户端播放页面中的“分享”图标来获取视频链接。在 PC 或者 Mac 上，复制地址栏的文本即可获取链接。"
 	},
 	"bookmarkDetailPage": {
-		"title": "Edit Memo",
-		"deleteStr": "Delete Memo",
-		"noNoteHint": "Tap Edit to start take notes down.",
+		"title": "编辑书签",
+		"deleteStr": "删除书签",
+		"noNoteHint": "点击“编辑”开始记笔记。",
 		"tag": {
-			"btn": "Add tag",
-			"dialogTitle": "Add New Tag",
-			"inputHint": "Enter tag"
+			"btn": "新增标签",
+			"dialogTitle": "添加一个标签",
+			"inputHint": "输入标签内容，例如“日语”"
 		},
-		"deleteConfirmTitle": "Delete this bookmark",
-		"deleteConfirm": "Are you sure you want to delete this bookmark?"
+		"deleteConfirmTitle": "删除便签",
+		"deleteConfirm": "你确定要删除此项吗？"
 	},
 	"settingsPage": {
-		"title": "Settings",
+		"title": "设置",
 		"account": {
-			"title": "Account",
+			"title": "帐户",
 			"deleteAccount": {
-				"title": "Delete Account...",
-				"confirmTitle": "Confirm Delete",
-				"confirmBody": "Are you sure you want to delete your account? This cannot be undone."
+				"title": "删除帐户...",
+				"confirmTitle": "确认删除",
+				"confirmBody": "你确定要删除你的帐户吗？这不能撤消。"
 			},
-			"logout": "Log out",
-			"login": "Log in...",
-			"details": "Account Details"
+			"logout": "退出登录",
+			"login": "登录...",
+			"details": "帐户详细信息"
 		},
 		"general": {
-			"title": "General",
-			"brightness": "Brightness",
+			"title": "一般",
+			"brightness": "亮度",
 			"brightnessOptions": {
-				"system": "System",
-				"dark": "Dark",
-				"light": "Light"
+				"system": "系统",
+				"dark": "深色模式",
+				"light": "浅色模式"
 			},
-			"color": "Color",
+			"color": "颜色",
 			"colorOptions": {
-				"system": "System",
-				"purple": "Purple",
-				"brown": "Brown",
-				"blue": "Blue",
-				"green": "Green",
-				"yellow": "Yellow"
+				"system": "自动",
+				"purple": "星空紫",
+				"brown": "沉稳棕",
+				"blue": "深海蓝",
+				"green": "马尔斯绿",
+				"yellow": "活力黄"
 			},
-			"language": "Language",
+			"language": "语言",
 			"languageOptions": {
-				"system": "System"
+				"system": "系统"
 			}
 		},
 		"data": {
-			"title": "Data",
-			"clean": "Clean",
-			"clear": "Clear all data",
-			"confirmTitle": "Confirm Wipe",
-			"confirmBody": "Are you sure you want to wipe all local data",
-			"finishHint": "Data wiped. Restart the app to take effect."
+			"title": "数据",
+			"clean": "清理",
+			"clear": "清除所有数据",
+			"confirmTitle": "确认擦除",
+			"confirmBody": "你确定要擦除所有本地数据吗？此操作不能撤销。",
+			"finishHint": "数据已擦除。重新启动应用以生效。"
 		},
-		"termOfUse": "Term of Use"
+		"termOfUse": "使用协议"
 	},
 	"searchPage": {
-		"inputHint": "Search Anything..."
+		"inputHint": "搜索任何内容..."
 	},
 	"backupPage": {
-		"title": "Backup",
-		"backupSubtitle": "Store your data to the iCloud",
-		"restore": "Restore",
-		"backup": "Backup",
-		"csv": "Export CSV",
-		"hint": "The media file cannot be synced. You can re-link media source after restoreing the data.",
-		"fromiCloud": "From iCloud",
-		"fromLocal": "Local",
-		"downloadFinish": "Download completed",
-		"uploadFinish": "Upload completed"
+		"title": "备份",
+		"backupSubtitle": "将你的数据存储到 iCloud",
+		"restore": "恢复",
+		"backup": "备份",
+		"csv": "导出 CSV",
+		"hint": "媒体文件无法同步。你可以在恢复数据后重新链接媒体源。",
+		"fromiCloud": "iCloud",
+		"fromLocal": "本地",
+		"downloadFinish": "下载完成",
+		"uploadFinish": "上传完成"
 	},
 	"loginPage": {
-		"title": "Login",
-		"noAccount": "I do not have an account",
-		"forget": "I forget my password",
-		"passwordValid": "Please enter your password",
-		"emailValid": "Please enter your email",
-		"errorPrefix": "Failed to login: "
+		"title": "登录",
+		"noAccount": "我没有帐户",
+		"forget": "我忘记了密码",
+		"passwordValid": "请输入你的密码",
+		"emailValid": "请输入你的电子邮件",
+		"errorPrefix": "登录失败："
 	},
 	"signupPage": {
-		"title": "Sign Up",
-		"passwordConfirm": "Confirm Password",
-		"passwordConfirmValid": "Please confirm your password",
-		"haveAccount": "I already have an account",
-		"notMatch": "Passwords do not match",
-		"errorPrefix": "Failed to sign up: "
+		"title": "注册",
+		"passwordConfirm": "确认密码",
+		"passwordConfirmValid": "请确认你的密码",
+		"haveAccount": "我已经有一个帐户",
+		"notMatch": "密码不匹配",
+		"errorPrefix": "注册失败："
 	},
 	"langugaePage": {
-		"title": "Language",
+		"title": "语言",
 		"localizedLanguageName": {
-			"enUS": "English (US)",
-			"enGB": "English (UK)",
-			"fr": "French",
-			"ko": "Korean",
-			"jp": "Japanese",
-			"zhCN": "Chinese (China Mainland)",
-			"zhHK": "Chinese (Hong Kong)"
+			"enUS": "英语（美国）",
+			"enGB": "英语（英语）",
+			"fr": "法语",
+			"ko": "韩语",
+			"jp": "日语",
+			"zhCN": "中文（中国）",
+			"zhHK": "中文（香港）"
 		}
 	},
 	"dialog": {
 		"contact": {
-			"replayTime": "You'll get a reply in 2 business days",
-			"wechat": "WeChat",
-			"red": "RED",
-			"wechatCopied": "WeChat ID copied",
-			"redCopied": "RED ID copied",
-			"emailCopied": "Email address copied"
+			"replayTime": "我们会在 2 个工作日内回复你。",
+			"wechat": "微信",
+			"red": "小红书",
+			"wechatCopied": "已复制微信号",
+			"redCopied": "已复制小红书 ID。在小红书中搜索此账户即可联系我们。",
+			"emailCopied": "已复制邮件"
 		},
 		"addBilibiliError": {
-			"title": "Invalid Url",
-			"body": "Try remove extra text and input pure url. Currently, we cannot import episode from bilibili."
+			"title": "我们无法处理你输入的链接",
+			"body": "试着移除多余的字符。目前，我们不支持导入番剧。"
 		},
 		"renameBookmark": {
-			"title": "Give a Title"
+			"title": "起个名字吧"
 		},
 		"introduction": {
 			"page_2": {
-				"title": "See how ClipMemo can help you",
+				"title": "ClipMemo 的打开方式",
 				"feature_1": {
-					"title": "Learn spoken language",
-					"body": "Save best clips from your favorite episode and movies, or YouTube video you like."
+					"title": "边看视频边学口语",
+					"body": "截取番剧、电影中的表达、俚语或者词汇，每日复习。"
 				},
 				"feature_2": {
-					"title": "Engage video courses",
-					"body": "Make online learning easier and more effective."
+					"title": "提高视频学习效率",
+					"body": "快速记录网课、视频笔记"
 				},
 				"feature_3": {
-					"title": "Bookmark anything you like",
-					"body": "Let your favorite channel really benefit you."
+					"title": "标记任何多媒体内容",
+					"body": "收集碎片化的视频中的知识，如面试、外国友人录制的 vlog..."
 				},
-				"footer": "That's why we created ClipMemo.\n It allow you to bookmark video & podcast just like books."
+				"footer": "总之，你可以像给书加书签一样，给任何视频或者播客打上书签。我们支持 Bilibili 和 YouTube 导入哦。"
 			},
 			"page_3": {
-				"title": "Lets get started",
-				"body": "Don't worry. We've created some example for you."
+				"title": "开始吧！",
+				"body": "我们已经为你准备好了一些示例。"
 			}
 		}
 	},
 	"links": {
-		"root": "https://www.ygeeker.com/support/clipmemo",
+		"root": "https://www.ygeeker.com/zh-CN/support/clipmemo",
 		"privacy": "/legal/privacy",
 		"tips": "/intro",
 		"term": "/legal/term-of-use",
