@@ -7,7 +7,6 @@ import 'package:hgeology_app/constants.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/pages/plan_page.dart';
 import 'package:hgeology_app/pages/store/store_page.dart';
 import 'package:hgeology_app/provider/data_provider.dart';
 import 'package:hgeology_app/provider/media_provider.dart';
@@ -143,12 +142,7 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
           actions: [
             TextButton(
               child: Text(t.newMediaPage.permission.upgrade),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PlanPage()),
-                );
-              },
+              onPressed: () {},
             ),
             TextButton(
               child: Text(t.general.cancel),

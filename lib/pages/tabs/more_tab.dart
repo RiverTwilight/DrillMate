@@ -4,7 +4,6 @@ import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/pages/about_page.dart';
 import 'package:hgeology_app/pages/backup_page.dart';
-import 'package:hgeology_app/pages/plan_page.dart';
 import 'package:hgeology_app/pages/settings_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:hgeology_app/provider/data_provider.dart';
@@ -95,12 +94,7 @@ class _MorePageState extends ConsumerState<MorePage>
         ),
         Card(
           child: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PlanPage()),
-              );
-            },
+            onTap: () {},
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(

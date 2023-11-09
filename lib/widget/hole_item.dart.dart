@@ -3,12 +3,12 @@ import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/media_detail_page.dart';
 import 'package:intl/intl.dart';
 
-class ProjectItem extends StatelessWidget {
+class HoleItem extends StatelessWidget {
   final Video video;
   final int bookmarkCount;
   final Function handleDelete;
 
-  const ProjectItem(this.video,
+  const HoleItem(this.video,
       {this.bookmarkCount = 0, required this.handleDelete, super.key});
 
   Widget _buildCoverPlaceholder(BuildContext context) {
