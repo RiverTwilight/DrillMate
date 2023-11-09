@@ -1,0 +1,138 @@
+{
+	"locale": "中文(香港)",
+	"appName": "TalkReel",
+	"general": {
+		"add": "新增",
+		"advanced": "進階",
+		"cancel": "取消",
+		"close": "關閉",
+		"confirm": "確認",
+		"continueStr": "繼續",
+		"copy": "複製",
+		"decline": "拒絕",
+		"done": "完成",
+		"edit": "編輯",
+		"error": "錯誤",
+		"example": "例子",
+		"finished": "已完成",
+		"hide": "隱藏",
+		"off": "關",
+		"on": "開",
+		"open": "打開",
+		"renamed": "已重命名",
+		"reset": "重設",
+		"settings": "設定",
+		"start": "開始",
+		"stop": "停止",
+		"save": "儲存",
+		"unchanged": "未改變",
+		"unknown": "未知"
+	},
+	"mediaLibraryTab": {
+		"tabName": "媒體庫",
+		"sortByName": "排序依名字",
+		"emptyText": "沒有找到任何媒體"
+	},
+	"statisticTab": {
+		"tabName": "書籤",
+		"deleteConfirm": "你確定要刪除這個嗎?",
+		"quotes": [
+			"The beautiful thing about learning is that no one can take it away from you.",
+			"Learning never exhausts the mind, it only ignites it.",
+			"The more you learn, the more you'll realize how much you don't know.",
+			"Live as if you were to die tomorrow. Learn as if you were to live forever.",
+			"The only thing that is constant is learning. Embrace the journey.",
+			"Your future depends on what you learn today. Make the most of it.",
+			"Learning is an endless journey that opens new doors and opportunities.",
+			"The more you learn, the more places you'll go. Keep exploring.",
+			"Ignite your curiosity and fuel your passion for learning. The sky is the limit.",
+			"Learn, grow, succeed. Repeat."
+		]
+	},
+	"reviewTab": {
+		"title": "回顧",
+		"weekCheck": "本週",
+		"dayCheck": "今天",
+		"comparedWithLastWeek": "比上週"
+	},
+	"moreTab": {
+		"tabName": "更多",
+		"general": {
+			"title": "一般",
+			"feedback": "意見反映",
+			"feedbackIntro": "我們需要你!",
+			"about": "關於",
+			"aboutIntro": "尋找作者和他的更多有用產品。",
+			"brightness": "亮度",
+			"brightnessOptions": {
+				"system": "系統",
+				"dark": "深色",
+				"light": "淺色"
+			},
+			"color": "顏色",
+			"colorOptions": {
+				"system": "系統"
+			},
+			"language": "語言",
+			"languageOptions": {
+				"system": "系統"
+			}
+		}
+	},
+	"accountPage": {},
+	"purchasePage": {
+		"restore": "還原購買",
+		"introTitle": "快速記錄, 快速學習。",
+		"introBody": "我們的使命是為每個人帶來更好的教育資源。 基本計劃可以滿足大多數學習者的需求, 你可以嘗試 TalkReel Plus 以獲得更好,更快的學習體驗和 8 項特別功能。",
+		"features": {
+			"cloudSync": "雲同步",
+			"note": "註釋和筆記"
+		}
+	},
+	"newMediaPage": {
+		"title": "新增媒體",
+		"form": {
+			"youtube": "YouTube",
+			"bilibili": "描述 (可選)",
+			"tiktok": "描述 (可選)"
+		}
+	},
+	"bookmarkEditPage": {
+		"title": "編輯書籤"
+	},
+	"settingsPage": {
+		"title": "設定",
+		"general": {
+			"title": "一般",
+			"brightness": "亮度",
+			"brightnessOptions": {
+				"system": "系統",
+				"dark": "深色",
+				"light": "淺色"
+			},
+			"color": "顏色",
+			"colorOptions": {
+				"system": "系統",
+				"purple": "Purple",
+				"brown": "Brown",
+				"blue": "Blue",
+				"green": "Green",
+				"yellow": "Yellow"
+			},
+			"language": "語言",
+			"languageOptions": {
+				"system": "系統"
+			},
+			"saveWindowPlacement": "離開：儲存視窗位置",
+			"minimizeToTray": "離開：最小化至系統匣",
+			"launchAtStartup": "登入後自動啟動",
+			"launchMinimized": "自動啟動至系統匣"
+		}
+	},
+	"links": {
+		"root": "https://talkreel.ygktool.com",
+		"privacy": "/zh-CN/docs/policy/privacy",
+		"ted": "/zh-CN/docs/tutorial-basics/import-from-ted"
+	},
+	"searchPage": {}
+}

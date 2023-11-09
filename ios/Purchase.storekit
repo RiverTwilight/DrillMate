@@ -1,0 +1,98 @@
+{
+  "identifier" : "1EC11586",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "17.99",
+      "familyShareable" : false,
+      "internalID" : "6455261171",
+      "localizations" : [
+        {
+          "description" : "Build your own learning way.",
+          "displayName" : "Lifetime",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "不限期享有会员。",
+          "displayName" : "终生会员",
+          "locale" : "zh_CN"
+        }
+      ],
+      "productID" : "lifetime_plus_v1",
+      "referenceName" : "ClipMemo Plus (Lifetime)",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6453835050",
+    "_developerTeamID" : "YF2W5ZH9J4",
+    "_lastSynchronizedDate" : 715504905.34916306
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21367945",
+      "localizations" : [
+
+      ],
+      "name" : "TalkReel Plus",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6455261187",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Save 15%",
+              "displayName" : "6 Months",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "sixmonths_plus_v1",
+          "recurringSubscriptionPeriod" : "P6M",
+          "referenceName" : "ClipMemo Plus (6 Months)",
+          "subscriptionGroupID" : "21367945",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6455283749",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Offer your TalkReel Plus privilages",
+              "displayName" : "Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "monthly_plus_v1",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "ClipMemo Plus (Monthly)",
+          "subscriptionGroupID" : "21367945",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

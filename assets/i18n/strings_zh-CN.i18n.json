@@ -1,0 +1,402 @@
+{
+	"locale": "简体中文",
+	"appName": "ClipMemo",
+	"general": {
+		"add": "添加",
+		"advanced": "高级",
+		"cancel": "取消",
+		"close": "关闭",
+		"confirm": "确认",
+		"continueStr": "继续",
+		"copy": "复制",
+		"decline": "拒绝",
+		"deleteStr": "删除",
+		"done": "完成",
+		"edit": "编辑",
+		"error": "错误",
+		"email": "电子邮件",
+		"example": "示例",
+		"finished": "已完成",
+		"hide": "隐藏",
+		"next": "下一个",
+		"off": "关闭",
+		"on": "打开",
+		"open": "打开",
+		"password": "密码",
+		"play": "播放",
+		"previous": "上一个",
+		"preview": "预览",
+		"pause": "暂停",
+		"renamed": "已重命名",
+		"rename": "重命名",
+		"reset": "重置",
+		"settings": "设置",
+		"start": "开始",
+		"stop": "停止",
+		"save": "保存",
+		"unchanged": "未改变",
+		"unknown": "未知",
+		"expired": "已过期",
+		"nologin": "未登录",
+		"view": "查看",
+		"learnMore": "了解更多...",
+		"language": "语言",
+		"noEligibilityHint": "你需要升级到 ClipMemo Plus 来使用此功能。"
+	},
+	"mediaLibraryTab": {
+		"tabName": "媒体库",
+		"emptyHint": "暂无媒体，请添加",
+		"sortMethod": {
+			"name": "按名称排序",
+			"recent": "最近",
+			"date": "按日期排序"
+		}
+	},
+	"memoLibraryPage": {
+		"title": "Memos"
+	},
+	"accountDetailPage": {
+		"title": "账户",
+		"info": {
+			"title": "属性"
+		},
+		"password": {
+			"oldPwd": "旧密码",
+			"newPwd": "新密码"
+		}
+	},
+	"mediaDetailPage": {
+		"playAll": "播放所有 Memo",
+		"stopPlayAll": "停止自动播放",
+		"transcript": {
+			"startBtn": "开始",
+			"transcribingStr": "转录中",
+			"tip": "较大的文件可能需要更长的时间。",
+			"localLimitationHint": "仅支持转录本地音视频文件"
+		},
+		"rename": {
+			"confirmBtn": "重命名",
+			"label": "新名称"
+		},
+		"noMediaError": "找不到媒体文件。你可以重新导入。",
+		"appBarActions": {
+			"transcribe": "转录",
+			"replace": "替换媒体"
+		},
+		"limitationReachedHint": "升级到 Plus 订阅以添加更多 Memo。",
+		"startCaptureBtn": "开始截取",
+		"loopModeSwitch": "设置循环模式",
+		"optionsBtn": "选项",
+		"loopBtn": "循环",
+		"options": {
+			"mediaSource": "媒体来源：",
+			"speed": "速度：",
+			"autoRestore": "自动恢复上次播放位置",
+			"danmuku": "弹幕"
+		},
+		"captureHint": {
+			"title": "截取什么？",
+			"expression": "困难或新的词汇/俚语/表达",
+			"phrase": "图表、划重点或者思维导图",
+			"anything": "你想保存的任何东西"
+		},
+		"share": {
+			"title": "分享",
+			"publishToStore": {
+				"title": "发布到商店",
+				"body": ""
+			},
+			"export": {
+				"title": "导出文件",
+				"body": ""
+			}
+		}
+	},
+	"statisticTab": {
+		"title": "统计",
+		"deleteConfirm": "你确定要删除此项吗？",
+		"noDataHint": "尚无足够数据。",
+		"totalBookmark": "书签数量",
+		"totalReview": "复习次数",
+		"quotes": [
+			"学习的美好之处在于，没有人能夺走它。",
+			"学习永不会耗尽心智，它只会点燃它。",
+			"你学得越多，你就越意识到你不知道的有多少。",
+			"生活就像你明天就要死去。学习就像你将永远活着。",
+			"唯一不变的事物是学习。",
+			"你的未来取决于你今天学到的东西。充分利用它。",
+			"学习是一次永无止境的旅程，为你打开新的大门和机会。",
+			"你学得越多，你走的地方就越多。继续探索。",
+			"点燃你的好奇心，激发你对学习的热情。天空是极限。",
+			"学习，成长，成功。重复。"
+		]
+	},
+	"reviewTab": {
+		"title": "回顾",
+		"weekCheck": "本周",
+		"dayCheck": "今天",
+		"comparedWithLastWeek": "比上周",
+		"emptyHint": "暂无书签。",
+		"playAnwser": "查看答案"
+	},
+	"moreTab": {
+		"title": "更多",
+		"lifetime": "永久",
+		"general": {
+			"title": "通用",
+			"feedback": "反馈",
+			"feedbackIntro": "我们需要你！",
+			"about": "关于",
+			"aboutIntro": "和作者聊聊，看看他的更多作品。",
+			"check101": "前往 ClipMemo 学院",
+			"check101Intro": "获取提示和帮助",
+			"brightness": "亮度",
+			"brightnessOptions": {
+				"system": "跟随系统",
+				"dark": "深色模式",
+				"light": "浅色模式"
+			},
+			"color": "颜色",
+			"colorOptions": {
+				"system": "系统"
+			},
+			"language": "语言",
+			"languageOptions": {
+				"system": "系统"
+			}
+		},
+		"privilige": {
+			"review": "回顾",
+			"unlimited": "不限制",
+			"sync": "同步"
+		},
+		"actions": {
+			"rate": "给我们评分",
+			"sync": "备份与恢复",
+			"settings": "设置"
+		}
+	},
+	"aboutPage": {
+		"title": "关于",
+		"tagline": "设计 & 开发",
+		"author": "RiverTwilight"
+	},
+	"collectionPage": {},
+	"purchasePage": {
+		"title": "会员",
+		"restore": "恢复购买",
+		"intro": {
+			"review": "通过每日回顾更快地取得进步。",
+			"sync": "在不同设备之间访问你的笔记和媒体。",
+			"unlimited": "添加无限媒体和书签。"
+		},
+		"loginHint": "为了你的安心，请在购买会员之前登录，以确保你能拥有购买内容。它还保护你的会员特权免受任何意外损失。",
+		"introTitle": "更快录制，更快学习。",
+		"introBody": "我们的使命是为每个人带来更好的教育资源。虽然基本计划可以满足大多数学习者的需求，但你可以尝试 TalkReel Plus 以获得更好、更快的学习体验，以及8个特殊功能。",
+		"features": {
+			"cloudSync": "云同步",
+			"note": "笔记",
+			"review": "每日回顾",
+			"tag": "标签系统",
+			"bookmark": "书签",
+			"transcribe": "自动转录",
+			"speed": "播放速度",
+			"media": "媒体",
+			"loop": "循环",
+			"theme": "主题颜色"
+		},
+		"redeem": {
+			"title": "兑换",
+			"dialogTitle": "兑换优惠码",
+			"redeemSuccessHint": "兑换成功。"
+		},
+		"unlimited": "不限制",
+		"alreadyPurchasedHint": "你已经是 Plus 会员了。",
+		"purchaseHint": {
+			"beforePolicy": "购买前请查看我们的",
+			"policy": "政策",
+			"afterPolicy": "。如果付款后你的订阅状态没有更新，请凭支付收据截图",
+			"contact": "联系我们",
+			"afterContact": "。"
+		}
+	},
+	"newMediaPage": {
+		"title": "添加到库",
+		"customTab": "自定义",
+		"onlineTab": "在线",
+		"finishImport": "成功导入",
+		"importError": "发生了错误。别担心，这不是你的错。",
+		"source": {
+			"youtube": "YouTube",
+			"bilibili": "Bilibili",
+			"wechat": "微信",
+			"ted": "TED",
+			"localVideo": "视频",
+			"localAudio": "音频",
+			"directUrl": "文件链接"
+		},
+		"permission": {
+			"title": "解锁更多功能！",
+			"body": "看来您一直在享受我们的应用！要添加更多视频，请考虑升级到我们的Plus计划。",
+			"upgrade": "了解更多"
+		},
+		"youtube": {
+			"fetchTitle": "自动获取标题"
+		},
+		"createCollection": {
+			"title": "新建合集"
+		},
+		"tedFile": "选择已下载的文件...",
+		"tedHelpBtn": "如何下载TED视频？",
+		"remoteFileHint": "你可以通过输入链接来添加播客节目或者视频文件。ClipMemo 不会下载文件到本地。",
+		"bilibiliHint": "轻触 Bilibili 客户端播放页面中的“分享”图标来获取视频链接，或者轻触分享页面的“更多”按钮直接分享到 ClipMemo。在 PC 或者 Mac 上，复制地址栏的文本即可获取链接。",
+		"youtubeHint": "轻触 YouTube 客户端播放页面中的“分享”图标来获取视频链接。在 PC 或者 Mac 上，复制地址栏的文本即可获取链接。"
+	},
+	"bookmarkDetailPage": {
+		"title": "编辑书签",
+		"deleteStr": "删除书签",
+		"noNoteHint": "点击“编辑”开始记笔记。",
+		"tag": {
+			"btn": "新增标签",
+			"dialogTitle": "添加一个标签",
+			"inputHint": "输入标签内容，例如“日语”"
+		},
+		"deleteConfirmTitle": "删除便签",
+		"deleteConfirm": "你确定要删除此项吗？"
+	},
+	"settingsPage": {
+		"title": "设置",
+		"account": {
+			"title": "帐户",
+			"deleteAccount": {
+				"title": "删除帐户...",
+				"confirmTitle": "确认删除",
+				"confirmBody": "你确定要删除你的帐户吗？这不能撤消。"
+			},
+			"logout": "退出登录",
+			"login": "登录...",
+			"details": "帐户详细信息"
+		},
+		"general": {
+			"title": "一般",
+			"brightness": "亮度",
+			"brightnessOptions": {
+				"system": "系统",
+				"dark": "深色模式",
+				"light": "浅色模式"
+			},
+			"color": "颜色",
+			"colorOptions": {
+				"system": "自动",
+				"purple": "星空紫",
+				"brown": "沉稳棕",
+				"blue": "深海蓝",
+				"green": "马尔斯绿",
+				"yellow": "活力黄"
+			},
+			"language": "语言",
+			"languageOptions": {
+				"system": "系统"
+			}
+		},
+		"data": {
+			"title": "数据",
+			"clean": "清理",
+			"clear": "清除所有数据",
+			"confirmTitle": "确认擦除",
+			"confirmBody": "你确定要擦除所有本地数据吗？此操作不能撤销。",
+			"finishHint": "数据已擦除。重新启动应用以生效。"
+		},
+		"termOfUse": "使用协议"
+	},
+	"searchPage": {
+		"inputHint": "搜索任何内容..."
+	},
+	"backupPage": {
+		"title": "备份",
+		"backupSubtitle": "将你的数据存储到 iCloud",
+		"restore": "恢复",
+		"backup": "备份",
+		"csv": "导出 CSV",
+		"hint": "媒体文件无法同步。你可以在恢复数据后重新链接媒体源。",
+		"fromiCloud": "iCloud",
+		"fromLocal": "本地",
+		"downloadFinish": "下载完成",
+		"uploadFinish": "上传完成"
+	},
+	"loginPage": {
+		"title": "登录",
+		"noAccount": "我没有帐户",
+		"forget": "我忘记了密码",
+		"passwordValid": "请输入你的密码",
+		"emailValid": "请输入你的电子邮件",
+		"errorPrefix": "登录失败："
+	},
+	"signupPage": {
+		"title": "注册",
+		"passwordConfirm": "确认密码",
+		"passwordConfirmValid": "请确认你的密码",
+		"haveAccount": "我已经有一个帐户",
+		"notMatch": "密码不匹配",
+		"errorPrefix": "注册失败："
+	},
+	"langugaePage": {
+		"title": "语言",
+		"localizedLanguageName": {
+			"enUS": "英语（美国）",
+			"enGB": "英语（英语）",
+			"fr": "法语",
+			"ko": "韩语",
+			"jp": "日语",
+			"zhCN": "中文（中国）",
+			"zhHK": "中文（香港）"
+		}
+	},
+	"dialog": {
+		"contact": {
+			"replayTime": "我们会在 2 个工作日内回复你。",
+			"wechat": "微信",
+			"red": "小红书",
+			"wechatCopied": "已复制微信号",
+			"redCopied": "已复制小红书 ID。在小红书中搜索此账户即可联系我们。",
+			"emailCopied": "已复制邮件"
+		},
+		"addBilibiliError": {
+			"title": "我们无法处理你输入的链接",
+			"body": "试着移除多余的字符。目前，我们不支持导入番剧。"
+		},
+		"renameBookmark": {
+			"title": "起个名字吧"
+		},
+		"introduction": {
+			"page_2": {
+				"title": "ClipMemo 的打开方式",
+				"feature_1": {
+					"title": "边看视频边学口语",
+					"body": "截取番剧、电影中的表达、俚语或者词汇，每日复习。"
+				},
+				"feature_2": {
+					"title": "提高视频学习效率",
+					"body": "快速记录网课、视频笔记"
+				},
+				"feature_3": {
+					"title": "标记任何多媒体内容",
+					"body": "收集碎片化的视频中的知识，如面试、外国友人录制的 vlog..."
+				},
+				"footer": "总之，你可以像给书加书签一样，给任何视频或者播客打上书签。我们支持 Bilibili 和 YouTube 导入哦。"
+			},
+			"page_3": {
+				"title": "开始吧！",
+				"body": "我们已经为你准备好了一些示例。"
+			}
+		}
+	},
+	"links": {
+		"root": "https://www.ygeeker.com/zh-CN/support/clipmemo",
+		"privacy": "/legal/privacy",
+		"tips": "/intro",
+		"term": "/legal/term-of-use",
+		"ted": "/tutorial-basics/import-from-ted",
+		"wechatTutoral": "/tutorial-basics/import-from-wechat"
+	}
+}

@@ -1,0 +1,402 @@
+{
+	"locale": "English",
+	"appName": "ClipMemo",
+	"general": {
+		"add": "Add",
+		"advanced": "Advanced",
+		"cancel": "Cancel",
+		"close": "Close",
+		"confirm": "Confirm",
+		"continueStr": "Continue",
+		"copy": "Copy",
+		"decline": "Decline",
+		"deleteStr": "Delete",
+		"done": "Done",
+		"edit": "Edit",
+		"error": "Error",
+		"email": "Email",
+		"example": "Example",
+		"finished": "Finished",
+		"hide": "Hide",
+		"next": "Next",
+		"off": "Off",
+		"on": "On",
+		"open": "Open",
+		"password": "Password",
+		"play": "Play",
+		"previous": "Previous",
+		"preview": "Preview",
+		"pause": "Pause",
+		"renamed": "Renamed",
+		"rename": "Rename",
+		"reset": "Reset",
+		"settings": "Settings",
+		"start": "Start",
+		"stop": "Stop",
+		"save": "Save",
+		"unchanged": "Unchanged",
+		"unknown": "Unknown",
+		"expired": "Expired",
+		"nologin": "Not Login",
+		"view": "View",
+		"learnMore": "Learn More...",
+		"language": "Language",
+		"noEligibilityHint": "You need to upgrade to Plus plan to use this feature."
+	},
+	"mediaLibraryTab": {
+		"tabName": "Library",
+		"emptyHint": "There is no media yet, add one",
+		"sortMethod": {
+			"name": "Sort by Name",
+			"recent": "Recently",
+			"date": "Sort by Date"
+		}
+	},
+	"accountDetailPage": {
+		"title": "Account",
+		"info": {
+			"title": "Info"
+		},
+		"password": {
+			"oldPwd": "Old Password",
+			"newPwd": "New Password"
+		}
+	},
+	"memoLibraryPage": {
+		"title": "Memos"
+	},
+	"mediaDetailPage": {
+		"playAll": "Play All Memos",
+		"stopPlayAll": "Stop Auto Play",
+		"transcript": {
+			"startBtn": "Start",
+			"transcribingStr": "Transcribing",
+			"tip": "Larger file make take longer time.",
+			"localLimitationHint": "Only local media file can be transcribed"
+		},
+		"rename": {
+			"confirmBtn": "Rename",
+			"label": "New Name"
+		},
+		"noMediaError": "Can not find the media file. You can re-import it.",
+		"appBarActions": {
+			"transcribe": "Transcribe",
+			"replace": "Replace Media"
+		},
+		"limitationReachedHint": "Upgrade to Plus subscription to add more memoes.",
+		"startCaptureBtn": "Start Capture",
+		"loopModeSwitch": "Set loop mode",
+		"optionsBtn": "Options",
+		"loopBtn": "Loop",
+		"options": {
+			"mediaSource": "Media Source: ",
+			"speed": "Speed: ",
+			"autoRestore": "Auto Restore Last Played Position",
+			"danmuku": "Danmuku"
+		},
+		"captureHint": {
+			"title": "What to capture?",
+			"expression": "Difficult or new phrase/slangs",
+			"phrase": "Graph, List or Mindmap",
+			"anything": "Anything you like"
+		},
+		"share": {
+			"title": "Share",
+			"publishToStore": {
+				"title": "Publish to online showcase",
+				"body": ""
+			},
+			"export": {
+				"title": "Export to file",
+				"body": ""
+			}
+		}
+	},
+	"statisticTab": {
+		"title": "Statistic",
+		"deleteConfirm": "Are you sure you want to delete this thing?",
+		"noDataHint": "No enough data yet.",
+		"totalBookmark": "Total Memos",
+		"totalReview": "Total Reviews",
+		"quotes": [
+			"The beautiful thing about learning is that no one can take it away from you.",
+			"Learning never exhausts the mind, it only ignites it.",
+			"The more you learn, the more you'll realize how much you don't know.",
+			"Live as if you were to die tomorrow. Learn as if you were to live forever.",
+			"The only thing that is constant is learning. Embrace the journey.",
+			"Your future depends on what you learn today. Make the most of it.",
+			"Learning is an endless journey that opens new doors and opportunities.",
+			"The more you learn, the more places you'll go. Keep exploring.",
+			"Ignite your curiosity and fuel your passion for learning. The sky is the limit.",
+			"Learn, grow, succeed. Repeat."
+		]
+	},
+	"reviewTab": {
+		"title": "Review",
+		"weekCheck": "This Week",
+		"dayCheck": "Today",
+		"comparedWithLastWeek": "Than last week",
+		"emptyHint": "No bookmarks yet.",
+		"playAnwser": "Play the anwser"
+	},
+	"moreTab": {
+		"title": "More",
+		"lifetime": "Lifetime",
+		"general": {
+			"title": "General",
+			"feedback": "Feedback",
+			"feedbackIntro": "We need you!",
+			"about": "About",
+			"aboutIntro": "Find the author and his more helpful products.",
+			"check101": "ClipMemo 101",
+			"check101Intro": "Get Tips & Tricks",
+			"brightness": "Brightness",
+			"brightnessOptions": {
+				"system": "System",
+				"dark": "Dark",
+				"light": "Light"
+			},
+			"color": "Color",
+			"colorOptions": {
+				"system": "System"
+			},
+			"language": "Language",
+			"languageOptions": {
+				"system": "System"
+			}
+		},
+		"privilige": {
+			"review": "Review",
+			"unlimited": "Unlimited",
+			"sync": "Sync"
+		},
+		"actions": {
+			"rate": "Rate us",
+			"sync": "Backup & Restore",
+			"settings": "Settings"
+		}
+	},
+	"aboutPage": {
+		"title": "About",
+		"tagline": "Designed and Created by",
+		"author": "RiverTwilight"
+	},
+	"collectionPage": {},
+	"purchasePage": {
+		"title": "Membership",
+		"restore": "Restore Purchase",
+		"intro": {
+			"review": "Get progress faster with Daily Review.",
+			"sync": "Access your notes and media across devices.",
+			"unlimited": "Add unlimited media and bookmarks."
+		},
+		"loginHint": "For your peace of mind, logging in before purchasing a membership ensures that your payment is correctly allocated to your account. It also safeguards your membership privileges against any unexpected loss.",
+		"introTitle": "Record Faster, Learn Faster.",
+		"introBody": "Our mission is to bring everyone better education resource. While basic plan can meet most leaner's demand, you can try TalkReel Plus to gain a better, faster learning experience, and 8 special features.",
+		"features": {
+			"cloudSync": "Cloud sync",
+			"note": "Note",
+			"review": "Daily Review",
+			"tag": "Tag System",
+			"bookmark": "Bookmark",
+			"transcribe": "Auto Transcribe",
+			"speed": "Playback Speed",
+			"media": "Media",
+			"loop": "Loop",
+			"theme": "Theme Color"
+		},
+		"redeem": {
+			"title": "Redeem",
+			"dialogTitle": "Redeem Offer Code",
+			"redeemSuccessHint": "Redeem Successfully."
+		},
+		"unlimited": "Unlimited",
+		"alreadyPurchasedHint": "You are already a Plus member.",
+		"purchaseHint": {
+			"beforePolicy": "Please check our ",
+			"policy": "policy",
+			"afterPolicy": " before purchasing. If you didn't receive your purchase, please ",
+			"contact": "contact us",
+			"afterContact": " at here."
+		}
+	},
+	"newMediaPage": {
+		"title": "Add to Library",
+		"customTab": "Custom",
+		"onlineTab": "Online",
+		"finishImport": "Imported Successfully",
+		"importError": "An error occured. Don't worry, it's not your fault.",
+		"source": {
+			"youtube": "YouTube",
+			"bilibili": "Bilibili",
+			"wechat": "WeChat",
+			"ted": "TED",
+			"localVideo": "Video",
+			"localAudio": "Audio",
+			"directUrl": "Source URL"
+		},
+		"permission": {
+			"title": "Unlock More Features!",
+			"body": "Looks like you've been enjoying our app! To add more videos, consider upgrading to our Plus plan.",
+			"upgrade": "Learn More"
+		},
+		"youtube": {
+			"fetchTitle": "Auto-fetch Title"
+		},
+		"createCollection": {
+			"title": "New Collection"
+		},
+		"tedFile": "Select the downloaded file...",
+		"tedHelpBtn": "How to download TED video?",
+		"remoteFileHint": "You can add your favorite podcast show or video with URL. ClipMemo will not download them to your device.",
+		"bilibiliHint": "You can get the link by tapping the Share button on video page of Bilibili APP. On your PC or Mac, you can directly copy content of the address bar.",
+		"youtubeHint": "You can get the link by tapping the Share button on video page of YouTube APP.  On desktop you can directly copy content of the address bar."
+	},
+	"bookmarkDetailPage": {
+		"title": "Edit Memo",
+		"deleteStr": "Delete Memo",
+		"noNoteHint": "Tap Edit to start take notes down.",
+		"tag": {
+			"btn": "Add tag",
+			"dialogTitle": "Add New Tag",
+			"inputHint": "Enter tag"
+		},
+		"deleteConfirmTitle": "Delete this bookmark",
+		"deleteConfirm": "Are you sure you want to delete this bookmark?"
+	},
+	"settingsPage": {
+		"title": "Settings",
+		"account": {
+			"title": "Account",
+			"deleteAccount": {
+				"title": "Delete Account...",
+				"confirmTitle": "Confirm Delete",
+				"confirmBody": "Are you sure you want to delete your account? This cannot be undone."
+			},
+			"logout": "Log out",
+			"login": "Log in...",
+			"details": "Account Details"
+		},
+		"general": {
+			"title": "General",
+			"brightness": "Brightness",
+			"brightnessOptions": {
+				"system": "System",
+				"dark": "Dark",
+				"light": "Light"
+			},
+			"color": "Color",
+			"colorOptions": {
+				"system": "System",
+				"purple": "Purple",
+				"brown": "Brown",
+				"blue": "Blue",
+				"green": "Green",
+				"yellow": "Yellow"
+			},
+			"language": "Language",
+			"languageOptions": {
+				"system": "System"
+			}
+		},
+		"data": {
+			"title": "Data",
+			"clean": "Clean",
+			"clear": "Clear all data",
+			"confirmTitle": "Confirm Wipe",
+			"confirmBody": "Are you sure you want to wipe all local data",
+			"finishHint": "Data wiped. Restart the app to take effect."
+		},
+		"termOfUse": "Term of Use"
+	},
+	"searchPage": {
+		"inputHint": "Search Anything..."
+	},
+	"backupPage": {
+		"title": "Backup",
+		"backupSubtitle": "Store your data to the iCloud",
+		"restore": "Restore",
+		"backup": "Backup",
+		"csv": "Export CSV",
+		"hint": "The media file cannot be synced. You can re-link media source after restoreing the data.",
+		"fromiCloud": "From iCloud",
+		"fromLocal": "Local",
+		"downloadFinish": "Download completed",
+		"uploadFinish": "Upload completed"
+	},
+	"loginPage": {
+		"title": "Login",
+		"noAccount": "I do not have an account",
+		"forget": "I forget my password",
+		"passwordValid": "Please enter your password",
+		"emailValid": "Please enter your email",
+		"errorPrefix": "Failed to login: "
+	},
+	"signupPage": {
+		"title": "Sign Up",
+		"passwordConfirm": "Confirm Password",
+		"passwordConfirmValid": "Please confirm your password",
+		"haveAccount": "I already have an account",
+		"notMatch": "Passwords do not match",
+		"errorPrefix": "Failed to sign up: "
+	},
+	"langugaePage": {
+		"title": "Language",
+		"localizedLanguageName": {
+			"enUS": "English (US)",
+			"enGB": "English (UK)",
+			"fr": "French",
+			"ko": "Korean",
+			"jp": "Japanese",
+			"zhCN": "Chinese (China Mainland)",
+			"zhHK": "Chinese (Hong Kong)"
+		}
+	},
+	"dialog": {
+		"contact": {
+			"replayTime": "You'll get a reply in 2 business days",
+			"wechat": "WeChat",
+			"red": "RED",
+			"wechatCopied": "WeChat ID copied",
+			"redCopied": "RED ID copied",
+			"emailCopied": "Email address copied"
+		},
+		"addBilibiliError": {
+			"title": "Invalid Url",
+			"body": "Try remove extra text and input pure url. Currently, we cannot import episode from bilibili."
+		},
+		"renameBookmark": {
+			"title": "Give a Title"
+		},
+		"introduction": {
+			"page_2": {
+				"title": "See how ClipMemo can help you",
+				"feature_1": {
+					"title": "Learn spoken language",
+					"body": "Save best clips from your favorite episode and movies, or YouTube video you like."
+				},
+				"feature_2": {
+					"title": "Engage video courses",
+					"body": "Make online learning easier and more effective."
+				},
+				"feature_3": {
+					"title": "Bookmark anything you like",
+					"body": "Let your favorite channel really benefit you."
+				},
+				"footer": "That's why we created ClipMemo.\n It allow you to bookmark video & podcast just like books."
+			},
+			"page_3": {
+				"title": "Lets get started",
+				"body": "Don't worry. We've created some example for you."
+			}
+		}
+	},
+	"links": {
+		"root": "https://www.ygeeker.com/support/clipmemo",
+		"privacy": "/legal/privacy",
+		"tips": "/intro",
+		"term": "/legal/term-of-use",
+		"ted": "/tutorial-basics/import-from-ted",
+		"wechatTutoral": "/tutorial-basics/import-from-wechat"
+	}
+}

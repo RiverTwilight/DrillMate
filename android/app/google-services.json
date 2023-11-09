@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "112275176907",
+    "firebase_url": "https://talkreel-6cb3f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "talkreel-6cb3f",
+    "storage_bucket": "talkreel-6cb3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112275176907:android:da8f52ec7ecd2ba8324a4e",
+        "android_client_info": {
+          "package_name": "com.rivertwilight.ididnt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112275176907-vc6kbp7rojpk7im03dp9bmq549ph6nib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3BNP5EpQ8EXEqut5LuuZ4noaO8nw-FRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112275176907-8inlsvfp3ms85ide224fv2ffjqr3b320.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "112275176907-d8amms8b6sro1ofsblsg8mvvt3u4sfb2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.llabelApp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
