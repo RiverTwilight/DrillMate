@@ -1,7 +1,7 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 1
-/// Strings: 273
+/// Strings: 275
 
 
 // coverage:ignore-file
@@ -142,6 +142,8 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	String get appName => '公路勘察';
 	late final _StringsGeneralEn general = _StringsGeneralEn._(_root);
 	late final _StringsMediaLibraryTabEn mediaLibraryTab = _StringsMediaLibraryTabEn._(_root);
+	late final _StringsHoleListTabEn holeListTab = _StringsHoleListTabEn._(_root);
+	late final _StringsContactTabEn contactTab = _StringsContactTabEn._(_root);
 	late final _StringsProjectLibraryTabEn projectLibraryTab = _StringsProjectLibraryTabEn._(_root);
 	late final _StringsMemoLibraryPageEn memoLibraryPage = _StringsMemoLibraryPageEn._(_root);
 	late final _StringsAccountDetailPageEn accountDetailPage = _StringsAccountDetailPageEn._(_root);
@@ -222,6 +224,26 @@ class _StringsMediaLibraryTabEn {
 	String get tabName => '媒体库';
 	String get emptyHint => '暂无媒体，请添加';
 	late final _StringsMediaLibraryTabSortMethodEn sortMethod = _StringsMediaLibraryTabSortMethodEn._(_root);
+}
+
+// Path: holeListTab
+class _StringsHoleListTabEn {
+	_StringsHoleListTabEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get tabName => '钻孔';
+}
+
+// Path: contactTab
+class _StringsContactTabEn {
+	_StringsContactTabEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get tabName => '通讯录';
 }
 
 // Path: projectLibraryTab

@@ -13,14 +13,14 @@ import 'package:hgeology_app/widget/bilibili_player_flutter/player/bilibili_play
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
-class BookmarkLibraryPage extends ConsumerStatefulWidget {
-  const BookmarkLibraryPage({super.key});
+class ContactPage extends ConsumerStatefulWidget {
+  const ContactPage({super.key});
 
   @override
-  _BookmarkLibraryPageState createState() => _BookmarkLibraryPageState();
+  _ContactPageState createState() => _ContactPageState();
 }
 
-class _BookmarkLibraryPageState extends ConsumerState<BookmarkLibraryPage> {
+class _ContactPageState extends ConsumerState<ContactPage> {
   late MediaController _mediaController;
   Bookmark? _currentBookmark;
   String? filterTag;

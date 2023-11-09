@@ -51,6 +51,12 @@
 			"date": "按日期排序"
 		}
 	},
+	"holeListTab": {
+		"tabName": "钻孔"
+	},
+	"contactTab": {
+		"tabName": "通讯录"
+	},
 	"projectLibraryTab": {
 		"tabName": "项目",
 		"emptyHint": {

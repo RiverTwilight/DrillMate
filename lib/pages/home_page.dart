@@ -1,8 +1,9 @@
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hgeology_app/pages/tabs/contact_tab.dart';
 import 'package:share_handler/share_handler.dart';
 import 'package:hgeology_app/constants.dart';
 import 'package:hgeology_app/pages/new_project_page.dart';
-import 'package:hgeology_app/pages/tabs/memo_library_tab.dart';
+import 'package:hgeology_app/pages/tabs/hole_library_tab.dart';
 import 'package:hgeology_app/pages/tabs/more_tab.dart';
 import 'package:hgeology_app/pages/review_page.dart';
 import 'package:hgeology_app/widget/bottom_nav.dart';
@@ -109,8 +110,8 @@ void showIntroductionBottomSheet(BuildContext context) {
 
 enum HomeTab {
   library(Icons.file_copy),
-  review(Icons.import_contacts_rounded),
-  statistic(Icons.data_saver_off_rounded),
+  review(Icons.hive_outlined),
+  contact(Icons.supervised_user_circle_rounded),
   more(Icons.widgets_rounded);
 
   const HomeTab(this.icon);
@@ -125,11 +126,11 @@ List<CustomBottomNavigationBarItem> bottomNavigationBarItems = [
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[1].icon,
-    title: t.reviewTab.title,
+    title: t.holeListTab.tabName,
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[2].icon,
-    title: t.statisticTab.title,
+    title: t.contactTab.tabName,
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[3].icon,
@@ -146,8 +147,8 @@ class HomePage extends ConsumerStatefulWidget {
 
 final List<Widget> _pages = [
   const ProjectLibraryPage(),
-  const BookmarkLibraryPage(),
-  StatisticPage(),
+  const HoleLibraryPage(),
+  const ContactPage(),
   const MorePage(),
 ];
 
