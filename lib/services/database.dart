@@ -36,31 +36,30 @@ class AppDatabase {
 
     return await openDatabase(
       path,
-      version: 4, // Update this to the new version number
+      version: 1, // Update this to the new version number
       onCreate: _createDB,
       onUpgrade: _upgradeDB,
     );
   }
 
   Future<void> _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion <= 3) {
-      await db.execute('''
-      CREATE TABLE collections ( 
-        id TEXT NOT NULL PRIMARY KEY, 
-        title TEXT NOT NULL,
-        description TEXT,
-        icon TEXT
-      )
-    ''');
-      // If there are more changes for further versions, handle them with additional if statements.
-    }
+    // if (oldVersion <= 3) {
+    //   await db.execute('''
+    //   CREATE TABLE collections (
+    //     id TEXT NOT NULL PRIMARY KEY,
+    //     title TEXT NOT NULL,
+    //     description TEXT,
+    //     icon TEXT
+    //   )
+    // ''');
+    //   // If there are more changes for further versions, handle them with additional if statements.
+    // }
     // Implement other version upgrades with additional if statements here.
   }
 
   Future<void> wipeData() async {
     await _database!.delete('medias');
     await _database!.delete('bookmarks');
-    await _database!.delete('collections');
     // await _database!.delete('review_logs');
   }
 
@@ -165,7 +164,6 @@ class AppDatabase {
         sourceUrl $textType,
         lastPlayPosition $integerType DEFAULT 0,
         subtitles $textType
-        collections $textType
       )
   ''');
 

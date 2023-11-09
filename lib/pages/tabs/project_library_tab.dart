@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/collection.dart';
+import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/pages/new_media_page.dart';
 import 'package:hgeology_app/pages/collection_page.dart';
@@ -94,9 +95,8 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
   Widget build(BuildContext context) {
     final videoManager = ref.watch(videoProvider);
     final bookmarkManager = ref.watch(bookmarkProvider);
-    final collectionManager = ref.watch(collectionProvider);
 
-    final videos = videoManager.videos;
+    List<Video> videos = videoManager.videos;
     final width = MediaQuery.of(context).size.width;
 
     switch (dropdownValue) {
@@ -128,22 +128,6 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                             ),
                           ],
                         ),
-                      ),
-                      GridView.builder(
-                        padding: const EdgeInsets.all(10.0),
-                        itemCount: collectionManager.collections.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount:
-                                (MediaQuery.of(context).size.width > 600)
-                                    ? 4
-                                    : 2,
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8,
-                            childAspectRatio: 200 / 80),
-                        itemBuilder: (ctx, i) =>
-                            CollectionItem(collectionManager.collections[i]),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 12),

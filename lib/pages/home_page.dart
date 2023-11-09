@@ -192,7 +192,8 @@ class _HomePageState extends ConsumerState<HomePage> {
       final prefs = await SharedPreferences.getInstance();
       if (!prefs.containsKey('first_time')) {
         // ignore: use_build_context_synchronously
-        showIntroductionBottomSheet(context);
+        // showIntroductionBottomSheet(context);
+        // Uncomment the above line to enable introdcution page
       }
       await prefs.setBool('first_time', false);
       if (prefs.containsKey(verifyBackupKey)) {

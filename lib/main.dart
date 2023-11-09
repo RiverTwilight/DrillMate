@@ -58,11 +58,9 @@ class _HGeologyAppState extends ConsumerState<HGeologyApp> {
   void initializeAsyncTasks() async {
     final video = ref.read(videoProvider);
     final bookmarkManager = ref.read(bookmarkProvider);
-    final collectionManager = ref.read(collectionProvider);
 
     video.loadData();
     bookmarkManager.loadData();
-    collectionManager.loadData();
 
     try {
       final userDataManager = ref.read(userDataProvider);
