@@ -3,6 +3,8 @@ import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/media_detail_page.dart';
 import 'package:intl/intl.dart';
 
+// Please let the item show these attributes. Consider the visual level of different
+// data.
 class HoleItem extends StatelessWidget {
   final Video video;
   final int bookmarkCount;

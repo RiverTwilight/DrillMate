@@ -28,6 +28,8 @@ import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:http/http.dart' as http;
 
+// Here is the form page to create a project. Here is the project model.
+// Please generate the form in Column widget based on this.
 class NewProjectPage extends ConsumerStatefulWidget {
   final SharedMedia? sharePayload;
   const NewProjectPage({Key? key, this.sharePayload}) : super(key: key);
@@ -37,19 +39,12 @@ class NewProjectPage extends ConsumerStatefulWidget {
 }
 
 class _NewProjectPageState extends ConsumerState<NewProjectPage> {
-  final TextEditingController _youtubeUrlController = TextEditingController();
-  final TextEditingController _bilibiliUrlController = TextEditingController();
   bool _isProcessing = false;
   String? _errorText;
-  bool _autoFetchTitle = true;
 
   @override
   void initState() {
     super.initState();
-
-    final settings = ref.read(settingsProvider);
-
-    _autoFetchTitle = settings.autoFetchYoutubeTitle;
   }
 
   void _showSuccessSnackbar() async {
@@ -156,78 +151,6 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
     );
   }
 
-  Widget _buildCard(BuildContext context, int index, String sourceName,
-      Widget icon, VoidCallback onSelcted) {
-    return CardBase(
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: InkWell(
-              onTap: onSelcted,
-              child: SizedBox(
-                height: double.infinity,
-                width: double.infinity,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment
-                        .start, // Align items along the center
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 6, bottom: 3, top: 5),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment
-                                .center, // Center vertically in the column
-                            children: [
-                              icon,
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                sourceName,
-                                style: const TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                overflow: TextOverflow.visible,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMediaGroup(BuildContext context,
-      {required List<Widget> children}) {
-    return ShrinkWrappingViewport(
-      offset: ViewportOffset.zero(),
-      slivers: [
-        SliverGrid(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: (MediaQuery.of(context).size.width > 600) ? 4 : 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 200 / 120,
-          ),
-          delegate: SliverChildListDelegate(children),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final videoManager = ref.watch(videoProvider);
@@ -251,17 +174,11 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
         body: TabBarView(children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 6),
-            child: Column(
-              children: [
-                Flexible(
-                  child: _buildMediaGroup(
-                    context,
-                    children: [],
-                  ),
-                ),
-              ],
+            child: Flexible(
+              child: Column(children: []),
             ),
           ),
+          // Join Project
           const StorePage(),
         ]),
       ),

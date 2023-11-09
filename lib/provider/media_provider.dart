@@ -1,5 +1,5 @@
 import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/services/video_database.dart';
+import 'package:hgeology_app/services/database/video_database.dart';
 import 'package:flutter/foundation.dart';
 
 class VideoNotifer extends ChangeNotifier {
