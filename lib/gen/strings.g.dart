@@ -1,7 +1,7 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 1
-/// Strings: 274
+/// Strings: 273
 
 
 // coverage:ignore-file
@@ -139,7 +139,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get locale => '简体中文';
-	String get appName => '道路勘探';
+	String get appName => '公路勘察';
 	late final _StringsGeneralEn general = _StringsGeneralEn._(_root);
 	late final _StringsMediaLibraryTabEn mediaLibraryTab = _StringsMediaLibraryTabEn._(_root);
 	late final _StringsProjectLibraryTabEn projectLibraryTab = _StringsProjectLibraryTabEn._(_root);
@@ -210,7 +210,6 @@ class _StringsGeneralEn {
 	String get view => '查看';
 	String get learnMore => '了解更多...';
 	String get language => '语言';
-	String get noEligibilityHint => '你需要升级到 ClipMemo Plus 来使用此功能。';
 }
 
 // Path: mediaLibraryTab

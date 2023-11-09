@@ -114,19 +114,19 @@ double secondsToDouble(int seconds) {
   return minutes + remainingSeconds / 100;
 }
 
-class MediaDetailPage extends ConsumerStatefulWidget {
+class ProjectDetailPage extends ConsumerStatefulWidget {
   final String videoId;
 
-  const MediaDetailPage({
+  const ProjectDetailPage({
     Key? key,
     required this.videoId,
   }) : super(key: key);
 
   @override
-  _MediaDetailPageState createState() => _MediaDetailPageState();
+  _ProjectDetailPageState createState() => _ProjectDetailPageState();
 }
 
-class _MediaDetailPageState extends ConsumerState<MediaDetailPage> {
+class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
   late MediaController _mediaController;
 
   Video? _video;
@@ -643,36 +643,6 @@ class _MediaDetailPageState extends ConsumerState<MediaDetailPage> {
     // );
   }
 
-  void _replaceMedia(BuildContext context) async {
-    FilePickerResult? result = _mediaType == MediaType.localVideo
-        ? await FilePicker.platform.pickFiles(
-            type: FileType.video,
-            allowMultiple: false,
-          )
-        : await FilePicker.platform.pickFiles(
-            allowMultiple: false,
-            allowedExtensions: ["wav", "aac", "mp3", "m4a"],
-          );
-    if (result != null) {
-      final updatedMedia = _video!.copy(
-        sourceUrl: result.files.single.path!,
-      );
-
-      final videoManager = ref.read(videoProvider);
-
-      videoManager.updateVideo(updatedMedia);
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MediaDetailPage(
-            videoId: updatedMedia.id,
-          ),
-        ),
-      );
-    }
-  }
-
   Widget _buildTranscribingIndicator(BuildContext buildContext) {
     if (!_isTranscribing) return Container();
 
@@ -752,9 +722,6 @@ class _MediaDetailPageState extends ConsumerState<MediaDetailPage> {
                         case "Share":
                           _share(context);
                           break;
-                        case 'Replace':
-                          _replaceMedia(context);
-                          break;
                       }
                     },
                     itemBuilder: (BuildContext context) =>
@@ -765,14 +732,6 @@ class _MediaDetailPageState extends ConsumerState<MediaDetailPage> {
                         child: ListTile(
                           title: Text(t.general.rename),
                           leading: const Icon(Icons.edit_rounded),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Replace',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text(t.mediaDetailPage.appBarActions.replace),
-                          leading: const Icon(Icons.switch_video_rounded),
                         ),
                       ),
                       PopupMenuItem<String>(
@@ -832,9 +791,6 @@ class _MediaDetailPageState extends ConsumerState<MediaDetailPage> {
                       switch (value) {
                         case 'Delete':
                           _delete(context);
-                          break;
-                        case 'Replace':
-                          _replaceMedia(context);
                           break;
                         case "Share":
                           _share(context);

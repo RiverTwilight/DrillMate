@@ -90,6 +90,8 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
     );
   }
 
+  Future<void> _refreshData() async {}
+
   @override
   Widget build(BuildContext context) {
     final videoManager = ref.watch(videoProvider);
@@ -110,66 +112,76 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.0),
-        child: videos.isNotEmpty
-            ? Stack(
-                children: [
-                  ListView(
-                    children: <Widget>[
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 12),
-                      //   child: Row(
-                      //     children: [
-                      //       Text(
-                      //         'Recently Viewed',
-                      //         style: TextStyle(
-                      //             fontSize: 20, fontWeight: FontWeight.bold),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                      GridView.builder(
-                        padding: const EdgeInsets.all(8.0),
-                        itemCount: videos.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: max(1, (width / 400).truncate()),
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 6,
-                            childAspectRatio:
-                                width < 600 ? 200 / 56 : 200 / 50),
-                        itemBuilder: (ctx, i) => VideoItem(
-                          videos[i],
-                          bookmarkCount: bookmarkManager
-                              .getAllBookmarkByMedia(videos[i].id)
-                              .length,
-                          handleDelete: (String id) {
-                            videoManager.deleteVideo(id);
-                            bookmarkManager.removeBookmarkByMedia(id);
-                          },
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 70,
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            : Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      t.projectLibraryTab.emptyHint.title,
-                      style: Theme.of(context).textTheme.headlineMedium,
+          padding: const EdgeInsets.symmetric(horizontal: 2.0),
+          child: Stack(
+            children: [
+              RefreshIndicator(
+                onRefresh: _refreshData,
+                child: ListView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  children: <Widget>[
+                    // Padding(
+                    //   padding: EdgeInsets.symmetric(horizontal: 12),
+                    //   child: Row(
+                    //     children: [
+                    //       Text(
+                    //         'Recently Viewed',
+                    //         style: TextStyle(
+                    //             fontSize: 20, fontWeight: FontWeight.bold),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    videos.isNotEmpty
+                        ? GridView.builder(
+                            padding: const EdgeInsets.all(8.0),
+                            itemCount: videos.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount:
+                                        max(1, (width / 400).truncate()),
+                                    crossAxisSpacing: 10,
+                                    mainAxisSpacing: 6,
+                                    childAspectRatio:
+                                        width < 600 ? 200 / 56 : 200 / 50),
+                            itemBuilder: (ctx, i) => VideoItem(
+                              videos[i],
+                              bookmarkCount: bookmarkManager
+                                  .getAllBookmarkByMedia(videos[i].id)
+                                  .length,
+                              handleDelete: (String id) {
+                                videoManager.deleteVideo(id);
+                                bookmarkManager.removeBookmarkByMedia(id);
+                              },
+                            ),
+                          )
+                        : Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 120,
+                                ),
+                                Text(
+                                  t.projectLibraryTab.emptyHint.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
+                                ),
+                                Text(t.projectLibraryTab.emptyHint.body)
+                              ],
+                            ),
+                          ),
+                    const SizedBox(
+                      height: 70,
                     ),
-                    Text(t.projectLibraryTab.emptyHint.body)
                   ],
                 ),
               ),
-      ),
+            ],
+          )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_rounded),
         onPressed: () {

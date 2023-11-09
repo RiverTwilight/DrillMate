@@ -236,30 +236,6 @@ class _MorePageState extends ConsumerState<MorePage>
           },
         ),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.discord,
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
-              ), // Website icon
-              onPressed: () {
-                visitDiscord();
-              },
-            ),
-            IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.reddit,
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
-              ), // Website icon
-              onPressed: () {
-                visitReddit();
-              }, // Add your website link here
-            ),
-          ],
-        ),
-        const SizedBox(height: 20),
         if (appVersion != null) // Check that appVersion is not null
           Align(
             alignment: Alignment.bottomCenter,

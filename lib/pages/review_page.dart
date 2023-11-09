@@ -282,15 +282,6 @@ class _ReviewPageState extends ConsumerState<ReviewPage> {
 
     final userDataManager = ref.read(userDataProvider);
 
-    if (!hasPrivilage(FeatureFlags.dailyReview, userDataManager.isPlus)) {
-      return Scaffold(
-        appBar: _buildAppBar(context),
-        body: Center(
-          child: Text(t.general.noEligibilityHint),
-        ),
-      );
-    }
-
     final fatherMedia =
         ref.read(videoProvider).getVideo(_currentBookmark.videoId);
     final reviewLogsManager = ref.watch(reviewLogsProvider);

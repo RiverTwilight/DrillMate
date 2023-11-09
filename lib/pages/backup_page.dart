@@ -76,22 +76,22 @@ class _BackupPageState extends ConsumerState<BackupPage> {
               ]),
               subtitle: Text(t.backupPage.backupSubtitle),
               onTap: () async {
-                if (!hasPrivilage(
-                    FeatureFlags.cloudSync, userDataManager.isPlus)) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(t.general.noEligibilityHint)));
-                } else {
-                  try {
-                    // await AppDatabase()
-                    //     .uploadToICloud(appVersion!, _uploadProgressController);
+                // if (!hasPrivilage(
+                //     FeatureFlags.cloudSync, userDataManager.isPlus)) {
+                //   ScaffoldMessenger.of(context).showSnackBar(
+                //       SnackBar(content: Text(t.general.noEligibilityHint)));
+                // } else {
+                //   try {
+                //     // await AppDatabase()
+                //     //     .uploadToICloud(appVersion!, _uploadProgressController);
 
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //     SnackBar(content: Text(t.backupPage.uploadFinish)));
-                  } catch (e) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text('Error: $e')));
-                  }
-                }
+                //     // ScaffoldMessenger.of(context).showSnackBar(
+                //     //     SnackBar(content: Text(t.backupPage.uploadFinish)));
+                //   } catch (e) {
+                //     ScaffoldMessenger.of(context)
+                //         .showSnackBar(SnackBar(content: Text('Error: $e')));
+                //   }
+                // }
               },
               trailing: StreamBuilder<double>(
                 stream: _uploadProgressController.stream,
@@ -117,28 +117,28 @@ class _BackupPageState extends ConsumerState<BackupPage> {
                 )
               ]),
               onTap: () async {
-                if (!hasPrivilage(
-                    FeatureFlags.cloudSync, userDataManager.isPlus)) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(t.general.noEligibilityHint)));
-                } else {
-                  final video = ref.read(videoProvider);
-                  final bookmarkManager = ref.read(bookmarkProvider);
+                // if (!hasPrivilage(
+                //     FeatureFlags.cloudSync, userDataManager.isPlus)) {
+                //   ScaffoldMessenger.of(context).showSnackBar(
+                //       SnackBar(content: Text(t.general.noEligibilityHint)));
+                // } else {
+                //   final video = ref.read(videoProvider);
+                //   final bookmarkManager = ref.read(bookmarkProvider);
 
-                  try {
-                    // await AppDatabase().downloadFromICloud(
-                    //     appVersion!, _downloadProgressController, () {
-                    //   video.loadData();
-                    //   bookmarkManager.loadData();
-                    // });
+                //   try {
+                //     // await AppDatabase().downloadFromICloud(
+                //     //     appVersion!, _downloadProgressController, () {
+                //     //   video.loadData();
+                //     //   bookmarkManager.loadData();
+                //     // });
 
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //     SnackBar(content: Text(t.backupPage.downloadFinish)));
-                  } catch (e) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text('Error: $e')));
-                  }
-                }
+                //     // ScaffoldMessenger.of(context).showSnackBar(
+                //     //     SnackBar(content: Text(t.backupPage.downloadFinish)));
+                //   } catch (e) {
+                //     ScaffoldMessenger.of(context)
+                //         .showSnackBar(SnackBar(content: Text('Error: $e')));
+                //   }
+                // }
               },
               trailing: StreamBuilder<double>(
                 stream: _downloadProgressController.stream,

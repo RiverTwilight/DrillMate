@@ -1,6 +1,6 @@
 {
 	"locale": "简体中文",
-	"appName": "道路勘探",
+	"appName": "公路勘察",
 	"general": {
 		"add": "添加",
 		"advanced": "高级",
@@ -40,8 +40,7 @@
 		"nologin": "未登录",
 		"view": "查看",
 		"learnMore": "了解更多...",
-		"language": "语言",
-		"noEligibilityHint": "你需要升级到 ClipMemo Plus 来使用此功能。"
+		"language": "语言"
 	},
 	"mediaLibraryTab": {
 		"tabName": "媒体库",
