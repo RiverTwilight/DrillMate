@@ -1,7 +1,7 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 1
-/// Strings: 272
+/// Strings: 274
 
 
 // coverage:ignore-file
@@ -233,6 +233,7 @@ class _StringsProjectLibraryTabEn {
 
 	// Translations
 	String get tabName => '项目';
+	late final _StringsProjectLibraryTabEmptyHintEn emptyHint = _StringsProjectLibraryTabEmptyHintEn._(_root);
 }
 
 // Path: memoLibraryPage
@@ -536,6 +537,17 @@ class _StringsMediaLibraryTabSortMethodEn {
 	String get name => '按名称排序';
 	String get recent => '最近';
 	String get date => '按日期排序';
+}
+
+// Path: projectLibraryTab.emptyHint
+class _StringsProjectLibraryTabEmptyHintEn {
+	_StringsProjectLibraryTabEmptyHintEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => '暂时没有项目';
+	String get body => '轻点右下角添加一个项目，或者刷新页面';
 }
 
 // Path: accountDetailPage.info

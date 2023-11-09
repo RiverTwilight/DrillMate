@@ -53,7 +53,11 @@
 		}
 	},
 	"projectLibraryTab": {
-		"tabName": "项目"
+		"tabName": "项目",
+		"emptyHint": {
+			"title": "暂时没有项目",
+			"body": "轻点右下角添加一个项目，或者刷新页面"
+		}
 	},
 	"memoLibraryPage": {
 		"title": "Memos"

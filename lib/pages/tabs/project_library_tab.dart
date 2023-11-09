@@ -116,30 +116,18 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                 children: [
                   ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Collection',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Recently Viewed',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: EdgeInsets.symmetric(horizontal: 12),
+                      //   child: Row(
+                      //     children: [
+                      //       Text(
+                      //         'Recently Viewed',
+                      //         style: TextStyle(
+                      //             fontSize: 20, fontWeight: FontWeight.bold),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                       GridView.builder(
                         padding: const EdgeInsets.all(8.0),
                         itemCount: videos.length,
@@ -173,11 +161,11 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'assets/illustrations/snap_the_moment_re_88cu.png',
-                      width: 200,
+                    Text(
+                      t.projectLibraryTab.emptyHint.title,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                    Text(t.mediaLibraryTab.emptyHint)
+                    Text(t.projectLibraryTab.emptyHint.body)
                   ],
                 ),
               ),
