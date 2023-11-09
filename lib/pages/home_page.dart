@@ -1,7 +1,7 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:share_handler/share_handler.dart';
 import 'package:hgeology_app/constants.dart';
-import 'package:hgeology_app/pages/new_media_page.dart';
+import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/pages/tabs/memo_library_tab.dart';
 import 'package:hgeology_app/pages/tabs/more_tab.dart';
 import 'package:hgeology_app/pages/review_page.dart';
@@ -171,7 +171,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => NewMediaPage(
+        builder: (context) => NewProjectPage(
           sharePayload: payload,
         ),
       ),

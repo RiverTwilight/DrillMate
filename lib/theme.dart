@@ -5,7 +5,7 @@ import 'package:hgeology_app/utils/native/platform_check.dart';
 final _borderRadius = BorderRadius.circular(8);
 
 ThemeData getTheme(Brightness brightness, ColorScheme? colorScheme,
-    {MaterialColor themeColor = Colors.green}) {
+    {MaterialColor themeColor = Colors.blueGrey}) {
   colorScheme ??= ColorScheme.fromSwatch(
     primarySwatch: themeColor,
     brightness: brightness,

@@ -3,12 +3,12 @@ import 'package:hgeology_app/services/database.dart';
 import 'package:hgeology_app/services/database_handler.dart';
 import 'package:flutter/foundation.dart';
 
-class CollectionNotifier extends ChangeNotifier {
+class ProjectNotifier extends ChangeNotifier {
   final AppDatabaseHandler<Collection> _dbHandler;
 
   List<Collection> _collections = [];
 
-  CollectionNotifier()
+  ProjectNotifier()
       : _dbHandler = AppDatabaseHandler<Collection>(
           dbName: collectionsDBName,
           queryColumns: ['id', 'title', 'icon', 'description'],

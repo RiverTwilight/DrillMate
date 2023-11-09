@@ -5,8 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/collection.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/provider.dart';
-import 'package:hgeology_app/pages/new_media_page.dart';
-import 'package:hgeology_app/pages/collection_page.dart';
+import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
@@ -189,57 +188,10 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const NewMediaPage(),
+              builder: (context) => const NewProjectPage(),
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class CollectionItem extends StatelessWidget {
-  final Collection collection;
-
-  const CollectionItem(this.collection, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(color: Colors.grey, width: 1),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CollectionPage(
-                collectionId: collection
-                    .id, // Pass the collection ID to the CollectionPage
-              ),
-            ),
-          );
-        },
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 16),
-          child: Row(
-            children: <Widget>[
-              Icon(Icons.folder_rounded),
-              SizedBox(
-                width: 15,
-              ),
-              Text(
-                collection.title,
-                style: TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
