@@ -10,11 +10,7 @@ import 'package:hgeology_app/widget/bottom_nav.dart';
 import 'package:hgeology_app/pages/tabs/project_library_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/widget/introduction.dart';
-import 'package:hgeology_app/widget/dialog/intro_oral.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:hgeology_app/pages/tabs/statistic_tab.dart';
-import 'package:hgeology_app/widget/typing_text.dart';
 import 'package:hgeology_app/init.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 

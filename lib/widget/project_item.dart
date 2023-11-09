@@ -11,35 +11,6 @@ class ProjectItem extends StatelessWidget {
   const ProjectItem(this.video,
       {this.bookmarkCount = 0, required this.handleDelete, super.key});
 
-  Widget _buildCoverPlaceholder(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
-    return (AspectRatio(
-      aspectRatio: 4 / 3,
-      child: SizedBox(
-        height: double.maxFinite,
-        width: width < 600 ? 110 : 140,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 15, left: 10),
-          child: Card(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              side: const BorderSide(color: Colors.grey, width: 1),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            color: Colors.black,
-            child: Center(
-              child: Icon(
-                video.mediaIcon,
-                color: Colors.white30,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -74,7 +45,6 @@ class ProjectItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                _buildCoverPlaceholder(context),
                 Expanded(
                   // Add the Expanded widget to properly align the text
                   child: Padding(

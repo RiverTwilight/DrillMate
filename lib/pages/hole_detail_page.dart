@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/constants.dart';
 import 'package:hgeology_app/pages/transcription.page.dart';
-import 'package:hgeology_app/provider/data_provider.dart';
 import 'package:hgeology_app/provider/media_provider.dart';
 import 'package:hgeology_app/utils/speech_recognizer.dart';
 import 'package:hgeology_app/widget/custom_bottomsheet.dart';
@@ -117,74 +115,11 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
     _timer?.cancel();
   }
 
-  void _playAllMemos() {
-    final bookmarkManager = ref.read(bookmarkProvider);
-
-    final bookmarks = bookmarkManager.bookmarks
-        .where((element) => element.videoId == widget.videoId)
-        .toList()
-      ..sort((a, b) => a.startAt.compareTo(b.startAt));
-
-    if (bookmarks.isEmpty) {
-      return;
-    }
-
-    _currentBookmarkIndex = 0;
-    _playSingleMemo(bookmarks[_currentBookmarkIndex]);
-
-    _timer?.cancel();
-
-    setState(() {
-      _isAutoplay = true;
-    });
-
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (!_isAutoplay) {
-        _timer?.cancel();
-        return;
-      }
-
-      if (_currentPositionInSeconds >= bookmarks[_currentBookmarkIndex].endAt) {
-        if (_currentBookmarkIndex < bookmarks.length - 1) {
-          _currentBookmark = bookmarks[_currentBookmarkIndex];
-          _currentBookmarkIndex++;
-          _playSingleMemo(bookmarks[_currentBookmarkIndex]);
-        } else {
-          _mediaController.pause();
-          _timer?.cancel();
-          setState(() {
-            _isAutoplay = false;
-          });
-        }
-      }
-    });
-  }
-
   static final List<FloatingActionButtonLocation> centerLocations =
       <FloatingActionButtonLocation>[
     FloatingActionButtonLocation.centerDocked,
     FloatingActionButtonLocation.centerFloat,
   ];
-
-  void _mediaControllerListener() {
-    if (_isLoop &&
-        _mediaController.currentPositionInSeconds >= _currentBookmark!.endAt) {
-      _mediaController.seekTo(Duration(seconds: _currentBookmark!.startAt));
-    }
-
-    setState(() {
-      _currentPositionInSeconds = _mediaController.currentPositionInSeconds;
-    });
-
-    if (_mediaController.isPlaying) {
-      final videoManager = ref.read(videoProvider);
-
-      final updatedMedia =
-          _video!.copy(lastPlayPosition: _currentPositionInSeconds);
-
-      videoManager.updateVideo(updatedMedia);
-    }
-  }
 
   Future<void> transcribeAndUpdateVideo(String sourceUrl,
       String selectedLanguage, VideoNotifer videoManager) async {
@@ -601,7 +536,11 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
           return Column(
-            children: <Widget>[],
+            children: <Widget>[
+              Row(
+                children: [],
+              )
+            ],
           );
         }),
         floatingActionButtonLocation: _fabLocation,
