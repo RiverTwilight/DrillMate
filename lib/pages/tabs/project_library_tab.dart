@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/collection.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/provider.dart';
-import 'package:hgeology_app/pages/new_project_page.dart';
+import 'package:hgeology_app/pages/project_detail_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
@@ -188,9 +188,17 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const NewProjectPage(),
+              builder: (context) => ProjectDetailPage(
+                videoId: "asdfasf",
+              ),
             ),
           );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => const NewProjectPage(),
+          //   ),
+          // );
         },
       ),
     );

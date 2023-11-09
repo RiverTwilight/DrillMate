@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:hgeology_app/services/database_handler.dart';
 
+// title, sn, creator, enterpraise, createDate, stage
 class Project implements AppDatabaseEntity {
   final String id;
   final String title;
