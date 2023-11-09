@@ -641,6 +641,11 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                   SizedBox(
                     height: 12,
                   ),
+                  // Here each Padding in Column show a attribute of the object.
+                  // But the problem is that if the attribute name or value is too long
+                  // it will overflow in a single row. Please limit the width taken of the two
+                  // Text widget in each row and let the text auto switch to new line if too long.
+                  // It should looks like the data field in iOS's  Settings App's About Part.
                   CardBase(
                       child: InkWell(
                           child: Column(
