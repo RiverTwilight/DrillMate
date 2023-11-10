@@ -8,6 +8,7 @@ import 'package:hgeology_app/provider/media_provider.dart';
 import 'package:hgeology_app/utils/speech_recognizer.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/custom_bottomsheet.dart';
+import 'package:hgeology_app/widget/custom_data_table.dart';
 import 'package:hgeology_app/widget/custom_dropdown_button.dart';
 import 'package:hgeology_app/widget/settings_section.dart';
 import 'package:hgeology_app/widget/tip_text.dart';
@@ -641,77 +642,14 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                   SizedBox(
                     height: 12,
                   ),
-                  // Here each Padding in Column show a attribute of the object.
-                  // But the problem is that if the attribute name or value is too long
-                  // it will overflow in a single row. Please limit the width taken of the two
-                  // Text widget in each row and let the text auto switch to new line if too long.
-                  // It should looks like the data field in iOS's  Settings App's About Part.
-                  CardBase(
-                      child: InkWell(
-                          child: Column(
-                    children: [
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "负责单位",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "中建三局",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ]),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "项目编号",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "234523XG324",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ]),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "工程类别",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "地铁勘查类",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ]),
-                      ),
-                      SizedBox(
-                        height: 12,
-                      ),
+                  CustomDataTable(
+                    data: [
+                      MapEntry("负责单位", "中建三局"),
+                      MapEntry("项目编号", "234523XG324"),
+                      MapEntry("工程类别", "地铁勘查类"),
+                      // ... Add more MapEntry objects as needed
                     ],
-                  ))),
+                  )
                 ]),
               )
             ],
