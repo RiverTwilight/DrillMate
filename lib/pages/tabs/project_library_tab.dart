@@ -3,12 +3,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/collection.dart';
+import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/pages/project_detail_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
+import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
+import 'package:hgeology_app/widget/project_item.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ProjectLibraryPage extends ConsumerStatefulWidget {
   const ProjectLibraryPage({Key? key}) : super(key: key);
@@ -19,10 +24,21 @@ class ProjectLibraryPage extends ConsumerStatefulWidget {
 
 class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
   String dropdownValue = 'Recently';
+  List<Project> projects = [];
 
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<void> _refreshData() async {
+    final projectService = MockProjectService();
+
+    final fetchedProjects = await projectService.fetchProjects();
+
+    setState(() {
+      projects = fetchedProjects;
+    });
   }
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
@@ -90,12 +106,9 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
     );
   }
 
-  Future<void> _refreshData() async {}
-
   @override
   Widget build(BuildContext context) {
     final videoManager = ref.watch(videoProvider);
-    final bookmarkManager = ref.watch(bookmarkProvider);
 
     List<Video> videos = videoManager.videos;
     final width = MediaQuery.of(context).size.width;
@@ -132,10 +145,10 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                     //     ],
                     //   ),
                     // ),
-                    videos.isNotEmpty
+                    projects.isNotEmpty
                         ? GridView.builder(
                             padding: const EdgeInsets.all(8.0),
-                            itemCount: videos.length,
+                            itemCount: projects.length,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
@@ -145,23 +158,24 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                                     crossAxisSpacing: 10,
                                     mainAxisSpacing: 6,
                                     childAspectRatio:
-                                        width < 600 ? 200 / 56 : 200 / 50),
-                            itemBuilder: (ctx, i) => VideoItem(
-                              videos[i],
-                              bookmarkCount: bookmarkManager
-                                  .getAllBookmarkByMedia(videos[i].id)
-                                  .length,
-                              handleDelete: (String id) {
-                                videoManager.deleteVideo(id);
-                                bookmarkManager.removeBookmarkByMedia(id);
-                              },
-                            ),
+                                        width < 600 ? 200 / 90 : 200 / 50),
+                            itemBuilder: (context, index) {
+                              return ProjectItem(
+                                project: projects[index],
+                                onEdit: (Project project) {
+                                  // Handle edit action
+                                },
+                                onDelete: (Project project) {
+                                  // Handle delete action
+                                },
+                              );
+                            },
                           )
                         : Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   height: 120,
                                 ),
                                 Text(

@@ -1,86 +1,137 @@
 import 'dart:math';
 import 'package:hgeology_app/services/database_handler.dart';
 
-// title, sn, creator, enterpraise, createDate, stage
 class Project implements AppDatabaseEntity {
   final String id;
-  final String title;
-  final String note;
-  final String videoId;
-  final int startAt;
-  final int endAt;
-  final List<String> tags;
-  final String createDate;
-  final String updateDate;
-  final bool favorite;
+  final String? projectName;
+  final String? projectSerialNumber;
+  final String? projectType;
+  final String? projectSource;
+  final String? projectProvince;
+  final String? projectCity;
+  final String? projectDistrict;
+  final String? projectAddress;
+  final String? projectCategory;
+  final String? projectScale;
+  final String? siteType;
+  final String? siteCategory;
+  final String? surveyGrade;
+  final String? constructionUnit;
+  final String? projectManagerID;
+  final String? uploadUserID;
+  final String? enterpriseID;
+  final String? longitude;
+  final String? latitude;
+  final String? projectState;
+  final String? startDate;
+  final String? completionDate;
+  final String? createdOn;
+  final String? updatedOn;
+  final String? description;
+  final String? notes;
+  final bool? isDisabled;
 
   Project({
     required this.id,
-    required this.title,
-    required this.note,
-    required this.videoId,
-    required this.startAt,
-    required this.endAt,
-    required this.tags,
-    required this.createDate,
-    required this.updateDate,
-    required this.favorite,
+    this.projectName,
+    this.projectSerialNumber,
+    this.projectType,
+    this.projectSource,
+    this.projectProvince,
+    this.projectCity,
+    this.projectDistrict,
+    this.projectAddress,
+    this.projectCategory,
+    this.projectScale,
+    this.siteType,
+    this.siteCategory,
+    this.surveyGrade,
+    this.constructionUnit,
+    this.projectManagerID,
+    this.uploadUserID,
+    this.enterpriseID,
+    this.longitude,
+    this.latitude,
+    this.projectState,
+    this.startDate,
+    this.completionDate,
+    this.createdOn,
+    this.updatedOn,
+    this.description,
+    this.notes,
+    this.isDisabled,
   });
 
-  String get rawNote {
-    return note
-        .replaceAll(RegExp(r'\n|\*|_|#'), '')
-        .substring(0, min(30, note.length));
-  }
-
-  Project copy({
-    String? id,
-    String? title,
-    String? note,
-    String? videoId,
-    int? startAt,
-    int? endAt,
-    List<String>? tags,
-    String? createDate,
-    String? updateDate,
-    bool? favorite,
-  }) =>
-      Project(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        note: note ?? this.note,
-        videoId: videoId ?? this.videoId,
-        startAt: startAt ?? this.startAt,
-        endAt: endAt ?? this.endAt,
-        tags: tags ?? this.tags,
-        createDate: createDate ?? this.createDate,
-        updateDate: updateDate ?? this.updateDate,
-        favorite: favorite ?? this.favorite,
-      );
-
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'note': note,
-        'videoId': videoId,
-        'startAt': startAt,
-        'endAt': endAt,
-        'tags': tags.join(","),
-        'createDate': createDate,
-        'updateDate': updateDate,
-        'favorite': favorite ? 1 : 0,
+        'Id': id,
+        'ProjectName': projectName,
+        'ProjectSerialNumber': projectSerialNumber,
+        'ProjectType': projectType,
+        'ProjectSource': projectSource,
+        'ProjectProvince': projectProvince,
+        'ProjectCity': projectCity,
+        'ProjectDistrict': projectDistrict,
+        'ProjectAddress': projectAddress,
+        'ProjectCategory': projectCategory,
+        'ProjectScale': projectScale,
+        'SiteType': siteType,
+        'SiteCategory': siteCategory,
+        'SurveyGrade': surveyGrade,
+        'ConstructionUnit': constructionUnit,
+        'ProjectManagerID': projectManagerID,
+        'UploadUserID': uploadUserID,
+        'EnterpriseID': enterpriseID,
+        'Longitude': longitude,
+        'Latitude': latitude,
+        'ProjectState': projectState,
+        'StartDate': startDate,
+        'CompletionDate': completionDate,
+        'CreatedOn': createdOn,
+        'UpdatedOn': updatedOn,
+        'Description': description,
+        'Notes': notes,
+        'IsDisabled': isDisabled,
       };
 
   factory Project.fromJson(Map<String, dynamic> json) => Project(
-        id: json['id'],
-        title: json['title'],
-        note: json['note'],
-        videoId: json['videoId'],
-        startAt: json['startAt'],
-        endAt: json['endAt'],
-        tags: json['tags'].split(","),
-        createDate: json['createDate'],
-        updateDate: json['updateDate'],
-        favorite: json['favorite'] == 1,
+        id: json['Id'],
+        projectName: json['ProjectName'],
+        projectSerialNumber: json['ProjectSerialNumber'],
+        projectType: json['ProjectType'],
+        projectSource: json['ProjectSource'],
+        projectProvince: json['ProjectProvince'],
+        projectCity: json['ProjectCity'],
+        projectDistrict: json['ProjectDistrict'],
+        projectAddress: json['ProjectAddress'],
+        projectCategory: json['ProjectCategory'],
+        projectScale: json['ProjectScale'],
+        siteType: json['SiteType'],
+        siteCategory: json['SiteCategory'],
+        surveyGrade: json['SurveyGrade'],
+        constructionUnit: json['ConstructionUnit'],
+        projectManagerID: json['ProjectManagerID'],
+        uploadUserID: json['UploadUserID'],
+        enterpriseID: json['EnterpriseID'],
+        longitude: json['Longitude'],
+        latitude: json['Latitude'],
+        projectState: json['ProjectState'],
+        startDate: json['StartDate'],
+        completionDate: json['CompletionDate'],
+        createdOn: json['CreatedOn'],
+        updatedOn: json['UpdatedOn'],
+        description: json['Description'],
+        notes: json['Notes'],
+        isDisabled: json['IsDisabled'] == 1,
       );
+
+  factory Project.mock() {
+    return Project(
+      id: Random().nextInt(1000).toString(), // Random ID for the mock
+      projectName: '示例项目名称${Random().nextInt(100)}', // Example Project Name
+      projectSerialNumber: '编号${Random().nextInt(9999)}', // Serial Number
+      createdOn: DateTime.now()
+          .subtract(Duration(days: Random().nextInt(1000)))
+          .toString(), // Random created date
+    );
+  }
 }
