@@ -2,15 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/models/collection.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/provider.dart';
-import 'package:hgeology_app/pages/project_detail_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
-import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:hgeology_app/widget/project_item.dart';
 
@@ -28,6 +25,8 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
   @override
   void initState() {
     super.initState();
+
+    _refreshData();
   }
 
   Future<void> _refreshData() async {

@@ -54,3 +54,4 @@ https://stackoverflow.com/questions/51679269/waiting-for-another-flutter-command
 -   [Use iOS API detect file speech](https://developer.apple.com/documentation/speech/sfspeechurlrecognitionrequest)
 -   [iOS widget for flutter app](https://www.youtube.com/watch?v=NoTc1D26HAo)
 -   [flutter with iCloud](https://pub.dev/packages/icloud_storage)
+-   [Flutter camera](https://docs.flutter.dev/cookbook/plugins/picture-using-camera)

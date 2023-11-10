@@ -101,7 +101,8 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("回尺记录"),
-                          leading: const Icon(Icons.edit_rounded),
+                          leading: const Icon(
+                              Icons.drive_file_rename_outline_rounded),
                         ),
                       ),
                       PopupMenuItem<String>(
@@ -109,7 +110,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("岩土记录"),
-                          leading: const Icon(Icons.mic_rounded),
+                          leading: const Icon(Icons.grain),
                         ),
                       ),
                       PopupMenuItem<String>(
@@ -117,7 +118,23 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("水位记录"),
+                          leading: const Icon(Icons.water),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Share',
+                        padding: const EdgeInsets.all(0),
+                        child: ListTile(
+                          title: Text("标贯记录"),
                           leading: const Icon(Icons.share),
+                        ),
+                      ),
+                      PopupMenuItem<String>(
+                        value: 'Share',
+                        padding: const EdgeInsets.all(0),
+                        child: ListTile(
+                          title: Text("取样记录"),
+                          leading: const Icon(Icons.sell_sharp),
                         ),
                       ),
                     ],
