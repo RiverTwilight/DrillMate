@@ -134,4 +134,20 @@ class Project implements AppDatabaseEntity {
           .toString(), // Random created date
     );
   }
+
+  Project copyWith({
+    String? id,
+    String? projectName,
+    String? projectSerialNumber,
+    String? createdOn,
+    // ... other fields ...
+  }) {
+    return Project(
+      id: id ?? this.id,
+      projectName: projectName ?? this.projectName,
+      projectSerialNumber: projectSerialNumber ?? this.projectSerialNumber,
+      createdOn: createdOn ?? this.createdOn,
+      // ... other field assignments ...
+    );
+  }
 }

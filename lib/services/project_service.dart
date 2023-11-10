@@ -4,6 +4,7 @@ import 'package:hgeology_app/models/project.dart';
 
 abstract class ProjectService {
   Future<List<Project>> fetchProjects();
+  Future<Project> fetchProjectById(String id);
 }
 
 class MockProjectService implements ProjectService {
@@ -15,9 +16,32 @@ class MockProjectService implements ProjectService {
     // Return mock data
     return List.generate(20, (index) => Project.mock());
   }
+
+  @override
+  Future<Project> fetchProjectById(String id) async {
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 1));
+
+    // Return a mock project with the given ID
+    // For simplicity, we're just returning a new mock project
+    // In a real scenario, you would fetch from your data store based on the ID
+    return Project.mock().copyWith(id: id);
+  }
 }
 
 class RealProjectService implements ProjectService {
+  @override
+  Future<Project> fetchProjectById(String id) async {
+    // TODO Replace with real logic
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 1));
+
+    // Return a mock project with the given ID
+    // For simplicity, we're just returning a new mock project
+    // In a real scenario, you would fetch from your data store based on the ID
+    return Project.mock().copyWith(id: id);
+  }
+
   @override
   Future<List<Project>> fetchProjects() async {
     const baseUrl =
