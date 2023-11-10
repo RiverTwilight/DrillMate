@@ -1,16 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
-import 'package:hgeology_app/provider/media_provider.dart';
 import 'package:hgeology_app/services/project_service.dart';
-import 'package:hgeology_app/utils/speech_recognizer.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/custom_data_table.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
@@ -81,7 +77,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
           actions: width < 600
               ? <Widget>[
                   PopupMenuButton<String>(
-                    icon: const Icon(Icons.more_vert_rounded),
+                    icon: const Icon(Icons.add),
                     onSelected: (value) {
                       switch (value) {
                         case 'Rename':
@@ -104,7 +100,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         value: 'Rename',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
-                          title: Text(t.general.rename),
+                          title: Text("回尺记录"),
                           leading: const Icon(Icons.edit_rounded),
                         ),
                       ),
@@ -112,8 +108,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         value: 'Transcribe',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
-                          title:
-                              Text(t.mediaDetailPage.appBarActions.transcribe),
+                          title: Text("岩土记录"),
                           leading: const Icon(Icons.mic_rounded),
                         ),
                       ),
@@ -121,22 +116,8 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         value: 'Share',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
-                          title: Text(t.mediaDetailPage.share.title),
+                          title: Text("水位记录"),
                           leading: const Icon(Icons.share),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Delete',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text(
-                            t.general.deleteStr,
-                            style: const TextStyle(color: Colors.red),
-                          ),
-                          leading: const Icon(
-                            Icons.delete_rounded,
-                            color: Colors.red,
-                          ),
                         ),
                       ),
                     ],
@@ -242,11 +223,45 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                       ),
                     ),
                     SizedBox(
-                      height: 8,
+                      height: 12,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 12),
                       child: Column(children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                                child: CardBase(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 8),
+                                child: Column(children: [
+                                  Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.blue[800],
+                                  ),
+                                  Text("现场拍照"),
+                                ]),
+                              ),
+                            )),
+                            Expanded(
+                                child: CardBase(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 8),
+                                child: Column(children: [
+                                  Icon(
+                                    Icons.camera,
+                                    color: Colors.orange[600],
+                                  ),
+                                  Text("岩芯拍照"),
+                                ]),
+                              ),
+                            )),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 12,
+                        ),
                         CardBase(
                           child: InkWell(
                             child: Align(
