@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/hole.dart';
-import 'package:hgeology_app/widget/plus_badage.dart';
+import 'package:hgeology_app/widget/outlined_badge.dart';
 
 class HoleItem extends StatefulWidget {
   final Hole hole;
@@ -27,8 +27,6 @@ class _HoleItemState extends State<HoleItem> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.hole.holeType);
-
     return Card(
       elevation: 1,
       child: InkWell(
@@ -54,10 +52,10 @@ class _HoleItemState extends State<HoleItem> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  PlusBadge()
+                  OutlinedBadge()
                 ],
               ),
-              SizedBox(height: 6),
+              const SizedBox(height: 6),
               Row(
                 children: [
                   Text(
