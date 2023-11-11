@@ -10,7 +10,6 @@ import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/hole_item.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
-import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
 class HoleLibraryPage extends ConsumerStatefulWidget {

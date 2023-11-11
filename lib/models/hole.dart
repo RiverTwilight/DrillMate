@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:hgeology_app/services/database_handler.dart';
 
 class Hole implements AppDatabaseEntity {
+  @override
   final String id;
   final String projectId;
   final String? holeNo;

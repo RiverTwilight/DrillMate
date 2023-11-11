@@ -3,16 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/hole.dart';
-import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/provider.dart';
-import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/hole_item.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
-import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
+/// Show the holes belongs to certain prioject
 class HoleListPage extends ConsumerStatefulWidget {
   const HoleListPage({Key? key}) : super(key: key);
 
@@ -85,8 +82,7 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
                         'No holes found', // Update with your actual text
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      Text(
-                          'Please add new holes or refresh'), // Update with your actual text
+                      Text('Please add new holes or refresh'),
                     ],
                   ),
                 ),

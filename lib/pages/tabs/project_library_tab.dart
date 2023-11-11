@@ -200,15 +200,9 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NewProjectPage(),
+              builder: (context) => const NewProjectPage(),
             ),
           );
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => const NewProjectPage(),
-          //   ),
-          // );
         },
       ),
     );
