@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
+import 'package:hgeology_app/pages/hole_list_page.dart';
 import 'package:hgeology_app/pages/project_detail_page.dart';
 
 class ProjectItem extends StatelessWidget {
@@ -68,7 +69,14 @@ class ProjectItem extends StatelessWidget {
                     child: TextButton.icon(
                       icon: Icon(Icons.list_alt_rounded),
                       label: Text('勘探列表'),
-                      onPressed: () => onEdit(project),
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HoleListPage(),
+                          ),
+                        )
+                      },
                     ),
                   ),
                   Expanded(

@@ -13,14 +13,14 @@ import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/widget/media_item.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
-class HoleLibraryPage extends ConsumerStatefulWidget {
-  const HoleLibraryPage({Key? key}) : super(key: key);
+class HoleListPage extends ConsumerStatefulWidget {
+  const HoleListPage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<HoleLibraryPage> createState() => _HoleLibraryPageState();
+  ConsumerState<HoleListPage> createState() => _HoleListPageState();
 }
 
-class _HoleLibraryPageState extends ConsumerState<HoleLibraryPage> {
+class _HoleListPageState extends ConsumerState<HoleListPage> {
   String dropdownValue = 'Recently';
   List<Hole> _holes = [];
 

@@ -1,10 +1,13 @@
 import 'dart:convert';
+import 'dart:math';
+import 'package:hgeology_app/models/hole.dart';
 import 'package:http/http.dart' as http;
 import 'package:hgeology_app/models/project.dart';
 
 abstract class ProjectService {
   Future<List<Project>> fetchProjects();
   Future<Project> fetchProjectById(String id);
+  Future<List<Hole>> fetchHolesByProjectId(String id);
 }
 
 class MockProjectService implements ProjectService {
@@ -27,9 +30,37 @@ class MockProjectService implements ProjectService {
     // In a real scenario, you would fetch from your data store based on the ID
     return Project.mock().copyWith(id: id);
   }
+
+  @override
+  Future<List<Hole>> fetchHolesByProjectId(String projectId) async {
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 1));
+
+    // Generate mock holes data
+    // Assuming each project could have a random number of holes up to 10
+    int numberOfHoles = Random().nextInt(10) + 1;
+    List<Hole> holes = List.generate(
+        numberOfHoles, (index) => Hole.mock().copyWith(projectId: projectId));
+
+    return holes;
+  }
 }
 
 class RealProjectService implements ProjectService {
+  @override
+  Future<List<Hole>> fetchHolesByProjectId(String projectId) async {
+    // Simulate network delay
+    await Future.delayed(Duration(seconds: 1));
+
+    // Generate mock holes data
+    // Assuming each project could have a random number of holes up to 10
+    int numberOfHoles = Random().nextInt(10) + 1;
+    List<Hole> holes = List.generate(
+        numberOfHoles, (index) => Hole.mock().copyWith(projectId: projectId));
+
+    return holes;
+  }
+
   @override
   Future<Project> fetchProjectById(String id) async {
     // TODO Replace with real logic

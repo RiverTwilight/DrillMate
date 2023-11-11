@@ -70,7 +70,7 @@ class _HGeologyAppState extends ConsumerState<HGeologyApp> {
     }
 
     setState(() {
-      authManager = AuthProvider();
+      // authManager = AuthProvider();
     });
   }
 

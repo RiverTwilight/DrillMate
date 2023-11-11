@@ -4,6 +4,7 @@ import 'package:hgeology_app/provider/data_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+// TODO Adapt for new auth client
 class AuthProvider {
   final _auth = Supabase.instance.client.auth;
 
