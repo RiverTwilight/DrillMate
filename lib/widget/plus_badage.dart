@@ -14,7 +14,7 @@ class PlusBadge extends StatelessWidget {
       elevation: 0,
       color: Theme.of(context).colorScheme.primary,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         child: Text(
           "已上传",
           style: TextStyle(

@@ -36,14 +36,13 @@ class ProjectItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                project.projectName ??
-                    'No name', // Fallback if projectName is null
+                project.projectName ?? 'No name',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 6),
+              const SizedBox(height: 6),
               Text(
                 project.createdOn ??
                     'Unknown date', // Fallback if createdOn is null

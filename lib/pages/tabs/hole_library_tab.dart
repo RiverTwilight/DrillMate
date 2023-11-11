@@ -3,9 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/hole.dart';
-import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/provider.dart';
-import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/hole_item.dart';
@@ -79,7 +76,7 @@ class _HoleLibraryPageState extends ConsumerState<HoleLibraryPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 120),
+                      const SizedBox(height: 120),
                       Text(
                         'No holes found', // Update with your actual text
                         style: Theme.of(context).textTheme.headlineMedium,

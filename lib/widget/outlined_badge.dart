@@ -2,29 +2,28 @@ import 'package:flutter/material.dart';
 
 class OutlinedBadge extends StatelessWidget {
   final double size;
+  final String text;
 
-  OutlinedBadge({this.size = 18.0});
+  const OutlinedBadge({super.key, this.size = 18.0, this.text = "已上传"});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
         side: BorderSide(
-          color: Theme.of(context).colorScheme.primary, // Outline color
-          width: 1.0, // Outline width
+          color: Theme.of(context).colorScheme.primary,
+          width: 1.0,
         ),
         borderRadius: BorderRadius.circular(5),
       ),
       elevation: 0,
-      color: Colors.transparent, // Transparent background
+      color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
         child: Text(
-          "已上传",
+          text,
           style: TextStyle(
-            color: Theme.of(context)
-                .colorScheme
-                .primary, // Text color same as border color
+            color: Theme.of(context).colorScheme.primary,
             fontSize: size,
           ),
         ),
