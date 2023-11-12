@@ -10,7 +10,6 @@ import 'package:hgeology_app/widget/custom_bottomsheet.dart';
 import 'package:hgeology_app/widget/custom_dropdown_button.dart';
 import 'package:hgeology_app/widget/settings_section.dart';
 import 'package:hgeology_app/widget/tip_text.dart';
-import 'package:uuid/uuid.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/bookmark.dart';
 import 'package:hgeology_app/models/video.dart';

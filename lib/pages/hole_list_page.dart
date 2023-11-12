@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/hole.dart';
+import 'package:hgeology_app/pages/new_hole_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/hole_item.dart';
@@ -89,7 +90,12 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_rounded),
         onPressed: () {
-          // Navigate to add new hole page or perform another action
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NewHolePage(),
+            ),
+          );
         },
       ),
     );
