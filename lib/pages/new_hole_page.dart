@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:share_handler/share_handler.dart';
 import 'package:hgeology_app/constants.dart';
-import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/pages/store/store_page.dart';
@@ -23,8 +22,6 @@ import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:http/http.dart' as http;
 
-// Here is the form page to create a project. Here is the project model.
-// Please generate the form in Column widget based on this.
 class NewHolePage extends ConsumerStatefulWidget {
   final SharedMedia? sharePayload;
   const NewHolePage({Key? key, this.sharePayload}) : super(key: key);
