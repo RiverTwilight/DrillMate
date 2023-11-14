@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
-import 'package:hgeology_app/models/water_level_record.dart';
+import 'package:hgeology_app/pages/new_back_ruler_page.dart';
 import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/card_base.dart';
@@ -88,8 +88,14 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         case 'Delete':
                           _delete(context);
                           break;
-                        case "Transcribe":
-                          _transcribe(context);
+                        case "BackRuler":
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const NewBackRulerRecordPage(),
+                            ),
+                          );
                           break;
                         case "WaterLevel":
                           Navigator.push(
@@ -105,7 +111,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                     itemBuilder: (BuildContext context) =>
                         <PopupMenuEntry<String>>[
                       PopupMenuItem<String>(
-                        value: 'Rename',
+                        value: 'BackRuler',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("回尺记录"),

@@ -4,13 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:hgeology_app/pages/take_picture_screen.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:share_handler/share_handler.dart';
-import 'package:hgeology_app/constants.dart';
 import 'package:hgeology_app/pages/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/pages/store/store_page.dart';
-import 'package:hgeology_app/provider/data_provider.dart';
-import 'package:hgeology_app/provider/media_provider.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:camera/camera.dart';
@@ -35,8 +30,8 @@ class _NewWaterLevelRecordPageState
 
   String _type = 'Default'; // Default type
   int _waterLevelLayerNum = 1; // Default layer number
-  DateTime _recordTime = DateTime.now(); // Default record time
-  List<File> _photos = []; // List to store photos
+  DateTime _recordTime = DateTime.now();
+  final List<File> _photos = [];
 
   @override
   void initState() {
