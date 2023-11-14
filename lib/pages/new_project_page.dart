@@ -161,13 +161,13 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
           leading: const LeadingBackButton(),
-          title: Text(t.newMediaPage.title),
+          title: Text("新建项目"),
           elevation: 0.0,
           backgroundColor: Theme.of(context).canvasColor,
           bottom: TabBar(
             tabs: [
-              Tab(text: t.newMediaPage.customTab),
-              Tab(text: t.newMediaPage.onlineTab),
+              Tab(text: "手动创建"),
+              Tab(text: "自动导入"),
             ],
           ),
         ),

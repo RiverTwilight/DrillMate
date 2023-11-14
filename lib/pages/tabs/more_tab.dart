@@ -152,19 +152,6 @@ class _MorePageState extends ConsumerState<MorePage>
           height: 30,
         ),
         ListTile(
-          leading: const Icon(Icons.layers_rounded),
-          title: Text(
-            t.moreTab.general.check101,
-          ),
-          subtitle: Text(
-            t.moreTab.general.check101Intro,
-          ),
-          trailing: const Icon(Icons.open_in_new_sharp, size: 18),
-          onTap: () async {
-            check101();
-          },
-        ),
-        ListTile(
           leading: const Icon(Icons.settings),
           title: Text(
             t.moreTab.actions.settings,
