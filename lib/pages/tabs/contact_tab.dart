@@ -25,11 +25,6 @@ class _ContactPageState extends ConsumerState<ContactPage> {
   Bookmark? _currentBookmark;
   String? filterTag;
 
-  Video? _video;
-  late MediaType _mediaType;
-  bool _isPlaying = false;
-  bool _isBuffering = false;
-
   @override
   Widget build(BuildContext context) {
     final bookmarkManager = ref.watch(bookmarkProvider);

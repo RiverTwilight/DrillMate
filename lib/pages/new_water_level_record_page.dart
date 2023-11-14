@@ -6,7 +6,6 @@ import 'package:hgeology_app/widget/card_base.dart';
 import 'package:share_handler/share_handler.dart';
 import 'package:hgeology_app/pages/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
@@ -99,10 +98,15 @@ class _NewWaterLevelRecordPageState
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          leading: const LeadingBackButton(),
-          title: Text("新建水位记录"),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          title: Text("新建岩土记录"),
           elevation: 0.0,
-          backgroundColor: Theme.of(context).canvasColor,
+          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
           actions: [
             IconButton(
                 onPressed: () {
@@ -111,7 +115,7 @@ class _NewWaterLevelRecordPageState
                     // Handle form submission
                   }
                 },
-                icon: const Icon(Icons.check))
+                icon: Icon(Icons.check))
           ],
         ),
         body: Padding(
@@ -120,7 +124,7 @@ class _NewWaterLevelRecordPageState
             key: _formKey,
             child: ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 DropdownButtonFormField<String>(
@@ -139,7 +143,9 @@ class _NewWaterLevelRecordPageState
                   height: 12,
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: '水位层号'),
+                  decoration: InputDecoration(
+                    labelText: '水位层号',
+                  ),
                   initialValue: '$_waterLevelLayerNum',
                   keyboardType: TextInputType.number,
                   onSaved: (value) =>

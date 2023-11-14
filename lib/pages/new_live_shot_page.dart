@@ -8,7 +8,6 @@ import 'package:hgeology_app/widget/custom_data_table.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
-import 'package:hgeology_app/gen/strings.g.dart';
 
 class NewLiveShotPage extends ConsumerStatefulWidget {
   final String projectId;
