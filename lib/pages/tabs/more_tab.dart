@@ -179,17 +179,6 @@ class _MorePageState extends ConsumerState<MorePage>
             );
           },
         ),
-        ListTile(
-          leading: const Icon(Icons.chat),
-          title: Text(
-            t.moreTab.general.feedback,
-          ),
-          // subtitle: Text(t.moreTab.general.feedbackIntro),
-          trailing: const Icon(Icons.arrow_forward_ios, size: 18),
-          onTap: () async {
-            contactViaEmail();
-          },
-        ),
         const SizedBox(height: 12),
         ListTile(
           // leading: Icon(Icons.rate_review),

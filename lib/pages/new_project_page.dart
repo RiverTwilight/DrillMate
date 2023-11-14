@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:share_handler/share_handler.dart';
@@ -22,11 +20,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hgeology_app/provider.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
-import 'package:http/http.dart' as http;
 
 // Here is the form page to create a project. Here is the project model.
 // Please generate the form in Column widget based on this.

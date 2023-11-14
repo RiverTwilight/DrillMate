@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:hgeology_app/models/theme_color.dart';
+import 'package:hgeology_app/models/user.dart';
 import 'package:hgeology_app/pages/account/account_detail_page.dart';
 import 'package:hgeology_app/pages/language_page.dart';
-import 'package:hgeology_app/pages/account/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/provider/settings_provider.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -55,101 +54,101 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        StreamBuilder<User?>(
-          stream: AuthProvider().userStream,
-          builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
-            if (snapshot.connectionState == ConnectionState.active) {
-              if (snapshot.data != null) {
-                return SettingsSection(
-                  title: t.settingsPage.title,
-                  children: [
-                    ListTile(
-                      leading: const Icon(Icons.account_circle),
-                      title: Text(t.settingsPage.account.details),
-                      onTap: () async {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const AccountSettingsPage(),
-                          ),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.delete),
-                      title: Text(t.settingsPage.account.deleteAccount.title),
-                      onTap: () async {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text(t.settingsPage.account.deleteAccount
-                                  .confirmTitle),
-                              content: Text(t.settingsPage.account.deleteAccount
-                                  .confirmBody),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () => Navigator.of(context)
-                                      .pop(), // Close dialog without deleting
-                                  child: Text(t.general.cancel),
-                                ),
-                                TextButton(
-                                  onPressed: () async {
-                                    await AuthProvider().deleteUser();
-                                    Navigator.of(context).pop();
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text(t.general.confirm),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.exit_to_app),
-                      title: Text(
-                        t.settingsPage.account.logout,
-                      ),
-                      onTap: () async {
-                        final authManager = AuthProvider();
-                        await authManager.logout();
-                      },
-                    ),
-                  ],
-                );
-              } else {
-                return SettingsSection(
-                    title: t.settingsPage.account.title,
-                    children: [
-                      ListTile(
-                        leading: const Icon(Icons.exit_to_app),
-                        title: Text(
-                          t.settingsPage.account.login,
-                        ),
-                        onTap: () async {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(
-                                onLoginSuccess: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ]);
-              }
-            } else {
-              return const SizedBox(
-                height: 50,
-                width: 50,
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),
+        // StreamBuilder<User?>(
+        //   stream: AuthProvider().userStream,
+        //   builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+        //     if (snapshot.connectionState == ConnectionState.active) {
+        //       if (snapshot.data != null) {
+        //         return SettingsSection(
+        //           title: t.settingsPage.title,
+        //           children: [
+        //             ListTile(
+        //               leading: const Icon(Icons.account_circle),
+        //               title: Text(t.settingsPage.account.details),
+        //               onTap: () async {
+        //                 Navigator.of(context).push(
+        //                   MaterialPageRoute(
+        //                     builder: (context) => const AccountSettingsPage(),
+        //                   ),
+        //                 );
+        //               },
+        //             ),
+        //             ListTile(
+        //               leading: const Icon(Icons.delete),
+        //               title: Text(t.settingsPage.account.deleteAccount.title),
+        //               onTap: () async {
+        //                 showDialog(
+        //                   context: context,
+        //                   builder: (BuildContext context) {
+        //                     return AlertDialog(
+        //                       title: Text(t.settingsPage.account.deleteAccount
+        //                           .confirmTitle),
+        //                       content: Text(t.settingsPage.account.deleteAccount
+        //                           .confirmBody),
+        //                       actions: <Widget>[
+        //                         TextButton(
+        //                           onPressed: () => Navigator.of(context)
+        //                               .pop(), // Close dialog without deleting
+        //                           child: Text(t.general.cancel),
+        //                         ),
+        //                         TextButton(
+        //                           onPressed: () async {
+        //                             await AuthProvider().deleteUser();
+        //                             Navigator.of(context).pop();
+        //                             Navigator.of(context).pop();
+        //                           },
+        //                           child: Text(t.general.confirm),
+        //                         ),
+        //                       ],
+        //                     );
+        //                   },
+        //                 );
+        //               },
+        //             ),
+        //             ListTile(
+        //               leading: const Icon(Icons.exit_to_app),
+        //               title: Text(
+        //                 t.settingsPage.account.logout,
+        //               ),
+        //               onTap: () async {
+        //                 final authManager = AuthProvider();
+        //                 await authManager.logout();
+        //               },
+        //             ),
+        //           ],
+        //         );
+        //       } else {
+        //         return SettingsSection(
+        //             title: t.settingsPage.account.title,
+        //             children: [
+        //               ListTile(
+        //                 leading: const Icon(Icons.exit_to_app),
+        //                 title: Text(
+        //                   t.settingsPage.account.login,
+        //                 ),
+        //                 onTap: () async {
+        //                   Navigator.of(context).push(
+        //                     MaterialPageRoute(
+        //                       builder: (context) => LoginScreen(
+        //                         onLoginSuccess: () {
+        //                           Navigator.pop(context);
+        //                         },
+        //                       ),
+        //                     ),
+        //                   );
+        //                 },
+        //               ),
+        //             ]);
+        //       }
+        //     } else {
+        //       return const SizedBox(
+        //         height: 50,
+        //         width: 50,
+        //         child: CircularProgressIndicator(),
+        //       );
+        //     }
+        //   },
+        // ),
         SettingsSection(title: t.settingsPage.general.title, children: [
           _SettingsEntry(
             label: t.settingsPage.general.brightness,

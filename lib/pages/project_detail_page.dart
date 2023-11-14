@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/pages/new_back_ruler_page.dart';
+import 'package:hgeology_app/pages/new_sample_record_page.dart';
 import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/card_base.dart';
@@ -106,6 +107,14 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                             ),
                           );
                           break;
+                        case "Sample":
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewSampleRecordPage(),
+                            ),
+                          );
+                          break;
                       }
                     },
                     itemBuilder: (BuildContext context) =>
@@ -144,7 +153,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         ),
                       ),
                       PopupMenuItem<String>(
-                        value: 'Share',
+                        value: 'Sample',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("取样记录"),
