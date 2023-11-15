@@ -4,7 +4,7 @@ class OutlinedBadge extends StatelessWidget {
   final double size;
   final String text;
 
-  const OutlinedBadge({super.key, this.size = 18.0, this.text = "已上传"});
+  const OutlinedBadge({super.key, this.size = 14.0, this.text = "已上传"});
 
   @override
   Widget build(BuildContext context) {

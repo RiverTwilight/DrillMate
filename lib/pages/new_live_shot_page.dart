@@ -1,241 +1,181 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:hgeology_app/models/project.dart';
-import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/card_base.dart';
-import 'package:hgeology_app/widget/custom_data_table.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/widget/leading_back_button.dart';
+import 'package:hgeology_app/pages/take_picture_screen.dart';
+import 'package:share_handler/share_handler.dart';
+import 'package:camera/camera.dart';
+import 'package:image_picker/image_picker.dart';
 
 class NewLiveShotPage extends ConsumerStatefulWidget {
-  final String projectId;
-
-  const NewLiveShotPage({
-    Key? key,
-    required this.projectId,
-  }) : super(key: key);
+  final SharedMedia? sharePayload;
+  const NewLiveShotPage({Key? key, this.sharePayload}) : super(key: key);
 
   @override
-  _NewLiveShotPageState createState() => _NewLiveShotPageState();
+  ConsumerState<NewLiveShotPage> createState() => _NewLiveShotPageState();
 }
 
 class _NewLiveShotPageState extends ConsumerState<NewLiveShotPage> {
-  Video? _video;
-  Project? _project;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ImagePicker _picker = ImagePicker();
+
+  String _description = "";
+  final List<File> _photos = [];
+
+  final List<String> _tags = [
+    "编录员",
+    "司钻员工",
+    "描述员",
+    "项目负责人",
+    "工程师",
+    "钻机设备",
+    "其他"
+  ];
+  final List<String> _selectedTags = ["编录员"];
+
+  void _handleTagSelection(String tag) {
+    setState(() {
+      if (_selectedTags.contains(tag)) {
+        _selectedTags.remove(tag);
+      } else {
+        _selectedTags.add(tag);
+      }
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    _fetchProjectDetail();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  Future<void> _takePhoto() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
 
-  Future<void> _fetchProjectDetail() async {
-    // Assuming the ProjectDetailPage has a property 'projectId' which is passed to it.
-    final projectId = widget.projectId;
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => TakePictureScreen(camera: firstCamera)),
+    );
 
-    try {
-      // Use your MockProjectService to fetch the project details.
-      // Replace with your actual data fetching logic when ready.
-      MockProjectService projectService = MockProjectService();
-      Project project = await projectService.fetchProjectById(projectId);
-
+    if (result != null) {
       setState(() {
-        _project = project;
+        _photos.add(File(result));
       });
-    } catch (e) {
-      // Handle exceptions by showing a dialog or a snackbar
-      print('Error fetching project details: $e');
     }
   }
 
-  void _transcribe(BuildContext context) {}
+  Future<void> _pickPhoto() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
-  void _delete(BuildContext context) {}
-
-  void _rename(BuildContext context) {}
-
-  void _share(BuildContext context) async {}
+    if (pickedFile != null) {
+      setState(() {
+        _photos.add(File(pickedFile.path));
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
-    return Stack(children: [
-      Scaffold(
+    return DefaultTabController(
+      length: 2, // Number of tabs
+      child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          leading: const LeadingBackButton(),
-          title: width < 600 ? null : Text(_video!.title),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          title: Text("现场拍照"),
+          elevation: 0.0,
+          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    // Handle form submission
+                  }
+                },
+                icon: Icon(Icons.check))
+          ],
         ),
-        body: _project == null
-            ? const Center(child: CircularProgressIndicator())
-            : LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                return Column(
-                  children: <Widget>[
-                    Container(
-                      width: double.maxFinite,
-                      color: Theme.of(context).colorScheme.primary,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 0),
+          child: Form(
+            key: _formKey,
+            child: ListView(
+              children: [
+                Wrap(
+                  spacing: 6.0,
+                  children: _tags.map((tag) {
+                    final isSelected = _selectedTags.contains(tag);
+                    return FilterChip(
+                      label: Text(tag),
+                      selected: isSelected,
+                      onSelected: (_) => _handleTagSelection(tag),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: '备注'),
+                  initialValue: '$_description',
+                  keyboardType: TextInputType.text,
+                  onSaved: (value) => _description = value ?? "",
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                        child: CardBase(
                       child: InkWell(
+                        onTap: _takePhoto,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 12),
-                                child: Text(
-                                  "川西北油气勘探项目",
-                                  style: const TextStyle(
-                                    fontSize: 24.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                textColor: Colors.white,
-                                leading: const Icon(
-                                  Icons.date_range,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  "2023/01/02 12:44:14",
-                                ),
-                              ),
-                            ],
-                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Column(children: [
+                            Icon(
+                              Icons.camera_alt,
+                              color: Colors.blue[800],
+                            ),
+                            Text("拍摄照片"),
+                          ]),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12),
-                      child: Column(children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                                child: CardBase(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 8),
-                                child: Column(children: [
-                                  Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.blue[800],
-                                  ),
-                                  Text("现场拍照"),
-                                ]),
-                              ),
-                            )),
-                            Expanded(
-                                child: CardBase(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 8),
-                                child: Column(children: [
-                                  Icon(
-                                    Icons.camera,
-                                    color: Colors.orange[600],
-                                  ),
-                                  Text("岩芯拍照"),
-                                ]),
-                              ),
-                            )),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 12,
-                        ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "项目成员",
-                                ),
-                                leading: const Icon(
-                                  Icons.group,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
-                              ),
+                    )),
+                    Expanded(
+                        child: CardBase(
+                      child: InkWell(
+                        onTap: _pickPhoto,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8),
+                          child: Column(children: [
+                            Icon(
+                              Icons.photo,
+                              color: Colors.blue[800],
                             ),
-                            onTap: () {},
-                          ),
+                            Text("选择照片"),
+                          ]),
                         ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "综合地图",
-                                ),
-                                leading: const Icon(
-                                  Icons.map,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
-                              ),
-                            ),
-                            onTap: () {},
-                          ),
-                        ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "项目进度与工点列表",
-                                ),
-                                leading: const Icon(
-                                  Icons.group,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
-                              ),
-                            ),
-                            onTap: () {},
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        CustomDataTable(
-                          data: [
-                            MapEntry("项目编号", "234523XG324"),
-                            MapEntry("负责人/创建人", "王武"),
-                            MapEntry("负责单位", "中建三局"),
-                            MapEntry("工程类别", "地铁勘查类"),
-                            MapEntry("经度", "14.51"),
-                            MapEntry("纬度", "51.52"),
-                            // ... Add more MapEntry objects as needed
-                          ],
-                        )
-                      ]),
-                    )
+                      ),
+                    )),
                   ],
-                );
-              }),
+                ),
+                ..._photos.map((photo) => Image.file(photo)).toList(),
+              ],
+            ),
+          ),
+        ),
       ),
-    ]);
+    );
   }
 }

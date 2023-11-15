@@ -5,9 +5,6 @@ import 'package:hgeology_app/pages/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/pages/store/store_page.dart';
 import 'package:hgeology_app/provider/data_provider.dart';
-import 'package:hgeology_app/provider/media_provider.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:http/http.dart' as http;
 
@@ -30,33 +27,6 @@ class _NewSampleRecordPageState extends ConsumerState<NewSampleRecordPage> {
     super.initState();
   }
 
-  void _showSuccessSnackbar() async {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          t.newMediaPage.finishImport,
-          style: const TextStyle(fontSize: 16),
-        ),
-        duration: const Duration(seconds: 2),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        action: SnackBarAction(
-          label: t.general.view,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -70,7 +40,7 @@ class _NewSampleRecordPageState extends ConsumerState<NewSampleRecordPage> {
               Navigator.of(context).pop();
             },
           ),
-          title: Text("新建岩土记录"),
+          title: Text("新建取样记录"),
           elevation: 0.0,
           backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
           actions: [
@@ -81,7 +51,7 @@ class _NewSampleRecordPageState extends ConsumerState<NewSampleRecordPage> {
                     // Handle form submission
                   }
                 },
-                icon: Icon(Icons.check))
+                icon: const Icon(Icons.check))
           ],
         ),
         body: Padding(

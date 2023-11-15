@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/pages/new_back_ruler_page.dart';
+import 'package:hgeology_app/pages/new_live_shot_page.dart';
 import 'package:hgeology_app/pages/new_sample_record_page.dart';
 import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
@@ -83,12 +84,6 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                     icon: const Icon(Icons.add),
                     onSelected: (value) {
                       switch (value) {
-                        case 'Rename':
-                          _rename(context);
-                          break;
-                        case 'Delete':
-                          _delete(context);
-                          break;
                         case "BackRuler":
                           Navigator.push(
                             context,
@@ -115,6 +110,14 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                             ),
                           );
                           break;
+                        case "Rock":
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewSampleRecordPage(),
+                            ),
+                          );
+                          break;
                       }
                     },
                     itemBuilder: (BuildContext context) =>
@@ -129,7 +132,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         ),
                       ),
                       PopupMenuItem<String>(
-                        value: 'Transcribe',
+                        value: 'Rock',
                         padding: const EdgeInsets.all(0),
                         child: ListTile(
                           title: Text("岩土记录"),
@@ -274,9 +277,18 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                             Expanded(
                                 child: CardBase(
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const NewLiveShotPage(),
+                                    ),
+                                  );
+                                },
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 8),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
                                   child: Column(children: [
                                     Icon(
                                       Icons.camera_alt,
@@ -288,21 +300,33 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                               ),
                             )),
                             Expanded(
-                                child: CardBase(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 8),
-                                child: Column(children: [
-                                  Icon(
-                                    Icons.camera,
-                                    color: Colors.orange[600],
-                                  ),
-                                  Text("岩芯拍照"),
-                                ]),
-                              ),
-                            )),
+                              child: CardBase(
+                                  child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const NewLiveShotPage(),
+                                    ),
+                                  );
+                                },
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  child: Column(children: [
+                                    Icon(
+                                      Icons.camera,
+                                      color: Colors.orange[600],
+                                    ),
+                                    Text("岩芯拍照"),
+                                  ]),
+                                ),
+                              )),
+                            ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         CardBase(
@@ -376,7 +400,6 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                             MapEntry("工程类别", "地铁勘查类"),
                             MapEntry("经度", "14.51"),
                             MapEntry("纬度", "51.52"),
-                            // ... Add more MapEntry objects as needed
                           ],
                         )
                       ]),
