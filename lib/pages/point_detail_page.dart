@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hgeology_app/pages/form/stop_hole_apply_page.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,14 +38,29 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
             children: [
               CardBase(
                 child: Padding(
-                  padding: const EdgeInsets.all(4),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _iconButton(Icons.map, "开孔", () {}),
+                      _iconButton(Icons.map, "开孔", () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const StopHoleApplyPage(),
+                          ),
+                        );
+                      }),
                       _iconButton(Icons.camera, "探头参数", () {}),
                       _iconButton(Icons.folder, "探头检测", () {}),
-                      _iconButton(Icons.info, "终孔", () {}),
+                      _iconButton(Icons.stop_circle_rounded, "终孔", () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const StopHoleApplyPage(),
+                          ),
+                        );
+                      }),
                     ],
                   ),
                 ),
