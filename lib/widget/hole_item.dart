@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/hole.dart';
+import 'package:hgeology_app/pages/hole_detail_page.dart';
 import 'package:hgeology_app/widget/outlined_badge.dart';
 
 class HoleItem extends StatefulWidget {
@@ -31,11 +32,17 @@ class _HoleItemState extends State<HoleItem> {
       elevation: 1,
       child: InkWell(
         onTap: () {
-          if (_showActions) {
-            widget.onNavigate(widget.hole);
-          } else {
-            _toggleActions();
-          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HoleDetailPage(),
+            ),
+          );
+          // if (_showActions) {
+          //   widget.onNavigate(widget.hole);
+          // } else {
+          //   _toggleActions();
+          // }
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
