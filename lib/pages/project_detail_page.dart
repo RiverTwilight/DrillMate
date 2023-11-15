@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/pages/new_back_ruler_page.dart';
 import 'package:hgeology_app/pages/new_live_shot_page.dart';
+import 'package:hgeology_app/pages/new_rock_record_page.dart';
 import 'package:hgeology_app/pages/new_sample_record_page.dart';
 import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
@@ -156,7 +157,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const NewSampleRecordPage(),
+                              builder: (context) => const NewRockRecordPage(),
                             ),
                           );
                           break;
