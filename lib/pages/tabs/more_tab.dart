@@ -166,6 +166,20 @@ class _MorePageState extends ConsumerState<MorePage>
           },
         ),
         ListTile(
+          leading: const Icon(Icons.map_rounded),
+          title: Text(
+            "地图管理",
+          ),
+          // subtitle: Text(t.moreTab.general.feedbackIntro),
+          trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+          onTap: () async {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsPage()),
+            );
+          },
+        ),
+        ListTile(
           leading: const Icon(Icons.backup_rounded),
           title: Text(
             t.moreTab.actions.sync,
@@ -225,6 +239,7 @@ class _MorePageState extends ConsumerState<MorePage>
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
+        title: Text("更多"),
       ),
       body: Align(
         alignment: Alignment.topCenter,

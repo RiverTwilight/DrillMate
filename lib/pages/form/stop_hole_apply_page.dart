@@ -15,6 +15,7 @@ import 'package:hgeology_app/widget/custom_bottomsheet.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class StopHoleApplyPage extends ConsumerStatefulWidget {
   final SharedMedia? sharePayload;
@@ -36,9 +37,16 @@ class _StopHoleApplyPageState extends ConsumerState<StopHoleApplyPage> {
   @override
   void initState() {
     super.initState();
-    _finishTimeController.text = DateTime.now().toLocal().toString();
+    _updateTime();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      _finishTimeController.text = DateTime.now().toLocal().toString();
+      _updateTime();
+    });
+  }
+
+  void _updateTime() {
+    setState(() {
+      _finishTimeController.text =
+          DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
     });
   }
 
@@ -58,7 +66,7 @@ class _StopHoleApplyPageState extends ConsumerState<StopHoleApplyPage> {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: const LeadingBackButton(),
-        title: Text("开孔申请"),
+        title: Text("终止"),
         elevation: 0.0,
         backgroundColor: Theme.of(context).canvasColor,
       ),
@@ -70,23 +78,32 @@ class _StopHoleApplyPageState extends ConsumerState<StopHoleApplyPage> {
             children: [
               TextFormField(
                 controller: _holeRadiusController,
-                decoration: InputDecoration(labelText: 'Hole Radius (mm)'),
+                decoration: InputDecoration(labelText: '钻孔直径 (mm)'),
                 keyboardType: TextInputType.number,
+              ),
+              const SizedBox(
+                height: 12,
               ),
               TextFormField(
                 controller: _holeDepthController,
-                decoration: InputDecoration(labelText: 'Hole Depth (m)'),
+                decoration: InputDecoration(labelText: '终孔深度 (m)'),
                 keyboardType: TextInputType.number,
+              ),
+              const SizedBox(
+                height: 12,
               ),
               TextFormField(
                 controller: _descriptionController,
-                decoration: InputDecoration(labelText: 'Description'),
+                decoration: InputDecoration(labelText: '描述'),
                 keyboardType: TextInputType.text,
+              ),
+              const SizedBox(
+                height: 12,
               ),
               TextFormField(
                 controller: _finishTimeController,
-                decoration: InputDecoration(labelText: 'Finish Time'),
-                readOnly: true, // This field is read-only
+                decoration: InputDecoration(labelText: '终止时间'),
+                readOnly: true,
               ),
             ],
           ),

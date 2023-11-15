@@ -60,6 +60,48 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
     }
   }
 
+  Widget _buildTopCard() {
+    return Card(
+      color: Colors.black45, // Adjust the color for the dimmed effect
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12.0), // Set your desired radius
+        child: Container(
+          height: 140, // Adjust the height as needed
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/artwork/red.jpeg'), // Replace with your artwork asset
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.1), // Dimming effect
+                BlendMode.darken,
+              ),
+            ),
+          ),
+          child: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    '川西北油气勘探项目', // Replace with your title
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24, // Adjust the font size as needed
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '2023/01/02 12:44:14', // Replace with your title
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ]),
+          ),
+        ),
+      ),
+    );
+  }
+
   void _transcribe(BuildContext context) {}
 
   void _delete(BuildContext context) {}
@@ -229,42 +271,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                 builder: (BuildContext context, BoxConstraints constraints) {
                 return Column(
                   children: <Widget>[
-                    Container(
-                      width: double.maxFinite,
-                      color: Theme.of(context).colorScheme.primary,
-                      child: InkWell(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 12),
-                                child: Text(
-                                  "川西北油气勘探项目",
-                                  style: const TextStyle(
-                                    fontSize: 24.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              ListTile(
-                                textColor: Colors.white,
-                                leading: const Icon(
-                                  Icons.date_range,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  "2023/01/02 12:44:14",
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                    _buildTopCard(),
                     SizedBox(
                       height: 12,
                     ),
