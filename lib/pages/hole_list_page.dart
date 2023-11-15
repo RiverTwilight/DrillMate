@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/hole.dart';
-import 'package:hgeology_app/pages/new_hole_page.dart';
+import 'package:hgeology_app/pages/new_point_page.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
-import 'package:hgeology_app/widget/hole_item.dart';
+import 'package:hgeology_app/widget/point_item.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 
@@ -28,7 +28,7 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(t.holeListTab.tabName),
+      title: Text("测试项目"),
       leading: const LeadingBackButton(),
       actions: <Widget>[
         IconButton(
@@ -53,6 +53,38 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
     });
   }
 
+  Widget _buildTopCard() {
+    return Card(
+      color: Colors.black45, // Adjust the color for the dimmed effect
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12.0), // Set your desired radius
+        child: Container(
+          height: 140, // Adjust the height as needed
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/artwork/blue.jpeg'), // Replace with your artwork asset
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.1), // Dimming effect
+                BlendMode.darken,
+              ),
+            ),
+          ),
+          child: Center(
+            child: Text(
+              '勘探点', // Replace with your title
+              style: TextStyle(
+                fontSize: 24, // Adjust the font size as needed
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,12 +97,19 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
               ? ListView.builder(
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemCount: _holes.length,
-                  itemBuilder: (ctx, i) => HoleItem(
-                    hole: _holes[i],
-                    onNavigate: (hole) {
-                      // Navigate to HoleDetailPage or perform another action
-                    },
-                  ),
+                  itemBuilder: (ctx, i) {
+                    if (i == 0) {
+                      // The card is placed as the first item
+                      return _buildTopCard();
+                    }
+                    // Adjusting index for holes because of the extra item at the top
+                    return HoleItem(
+                      hole: _holes[i - 1], // Adjust the index for holes
+                      onNavigate: (hole) {
+                        // Navigate to HoleDetailPage or perform another action
+                      },
+                    );
+                  },
                 )
               : Center(
                   child: Column(
@@ -93,7 +132,7 @@ class _HoleListPageState extends ConsumerState<HoleListPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const NewHolePage(),
+              builder: (context) => const NewPointPage(),
             ),
           );
         },

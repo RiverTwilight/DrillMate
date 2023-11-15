@@ -15,22 +15,19 @@ import 'package:hgeology_app/utils/url_checker.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/custom_bottomsheet.dart';
 import 'package:hgeology_app/widget/tip_text.dart';
-import 'package:hgeology_app/provider.dart';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:http/http.dart' as http;
 
-class NewHolePage extends ConsumerStatefulWidget {
+class NewPointPage extends ConsumerStatefulWidget {
   final SharedMedia? sharePayload;
-  const NewHolePage({Key? key, this.sharePayload}) : super(key: key);
+  const NewPointPage({Key? key, this.sharePayload}) : super(key: key);
 
   @override
-  ConsumerState<NewHolePage> createState() => _NewHolePageState();
+  ConsumerState<NewPointPage> createState() => _NewPointPageState();
 }
 
-class _NewHolePageState extends ConsumerState<NewHolePage> {
+class _NewPointPageState extends ConsumerState<NewPointPage> {
   bool _isProcessing = false;
   String? _errorText;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/hole.dart';
-import 'package:hgeology_app/pages/hole_detail_page.dart';
+import 'package:hgeology_app/pages/point_detail_page.dart';
 import 'package:hgeology_app/widget/outlined_badge.dart';
 
 class HoleItem extends StatefulWidget {
@@ -59,7 +59,7 @@ class _HoleItemState extends State<HoleItem> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  OutlinedBadge()
+                  const OutlinedBadge()
                 ],
               ),
               const SizedBox(height: 6),
@@ -84,7 +84,7 @@ class _HoleItemState extends State<HoleItem> {
               ),
               const SizedBox(height: 6),
               Text(
-                'Created on: ${widget.hole.createdOn.toIso8601String()}',
+                '创建日期: ${widget.hole.createdOn.toIso8601String()}',
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey,

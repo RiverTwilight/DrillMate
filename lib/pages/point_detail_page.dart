@@ -1,11 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
-import 'package:hgeology_app/constants.dart';
-import 'package:hgeology_app/pages/transcription.page.dart';
-import 'package:hgeology_app/provider/media_provider.dart';
-import 'package:hgeology_app/utils/speech_recognizer.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,25 +27,24 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
           leading: const LeadingBackButton(),
-          title: Text("勘探详情"),
+          title: Text("勘探点详情"),
           elevation: 0.0,
-          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+          backgroundColor: Theme.of(context).canvasColor,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 0),
           child: ListView(
             children: [
-              // Icon buttons with text labels
               CardBase(
                 child: Padding(
                   padding: const EdgeInsets.all(4),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _iconButton(Icons.map, "Map"),
-                      _iconButton(Icons.camera, "Camera"),
-                      _iconButton(Icons.folder, "Folder"),
-                      _iconButton(Icons.info, "Info"),
+                      _iconButton(Icons.map, "开孔", () {}),
+                      _iconButton(Icons.camera, "探头参数", () {}),
+                      _iconButton(Icons.folder, "探头检测", () {}),
+                      _iconButton(Icons.info, "终孔", () {}),
                     ],
                   ),
                 ),
@@ -60,21 +52,18 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
             ],
           ),
         ),
-        floatingActionButton:
-            _buildSpeedDial(), // Floating action button with sub-buttons
+        floatingActionButton: _buildSpeedDial(),
       ),
     );
   }
 
-  Widget _iconButton(IconData icon, String label) {
+  Widget _iconButton(IconData icon, String label, void Function() onPressed) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
           icon: Icon(icon),
-          onPressed: () {
-            // Add your icon button action here
-          },
+          onPressed: onPressed,
         ),
         Text(label),
       ],
@@ -87,12 +76,12 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
       activeIcon: Icons.close,
       children: [
         SpeedDialChild(
-          child: Icon(Icons.upload),
+          child: const Icon(Icons.upload),
           label: 'Upload',
           onTap: () => print('Upload Pressed'),
         ),
         SpeedDialChild(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           label: 'Add',
           onTap: () => print('Add Pressed'),
         ),

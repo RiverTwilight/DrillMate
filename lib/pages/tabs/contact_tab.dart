@@ -7,11 +7,6 @@ import 'package:hgeology_app/provider/bookmark_provider.dart';
 import 'package:hgeology_app/pages/bookmark_detail_page.dart';
 import 'package:hgeology_app/services/media_controller.dart';
 import 'package:hgeology_app/pages/search_page.dart';
-import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:hgeology_app/widget/bilibili_player_flutter/player/bilibili_player.dart';
-import 'package:hgeology_app/models/video.dart';
-import 'package:hgeology_app/gen/strings.g.dart';
 
 class ContactPage extends ConsumerStatefulWidget {
   const ContactPage({super.key});
