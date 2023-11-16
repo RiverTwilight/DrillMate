@@ -27,6 +27,32 @@ class _NewSampleRecordPageState extends ConsumerState<NewSampleRecordPage> {
     super.initState();
   }
 
+  Widget _buildNumberTextField(String label) {
+    return TextFormField(
+      decoration: InputDecoration(labelText: label),
+      keyboardType: TextInputType.number,
+      // Add validation and saving logic
+    );
+  }
+
+  Widget _buildOptionField(String label) {
+    // Assuming dropdown or similar widget
+    return DropdownButtonFormField<String>(
+      decoration: InputDecoration(labelText: label),
+      items: [], // Add items here
+      onChanged: (String? newValue) {
+        // Handle change
+      },
+    );
+  }
+
+  Widget _buildStringTextField(String label) {
+    return TextFormField(
+      decoration: InputDecoration(labelText: label),
+      // Add validation and saving logic
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -59,7 +85,26 @@ class _NewSampleRecordPageState extends ConsumerState<NewSampleRecordPage> {
           child: Form(
             key: _formKey,
             child: ListView(
-              children: [],
+              children: [
+                const SizedBox(
+                  height: 18,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: _buildNumberTextField('开始深度 (m)')),
+                    const SizedBox(width: 10),
+                    Expanded(child: _buildNumberTextField('结束深度 (m)')),
+                  ],
+                ),
+                const SizedBox(
+                  height: 14,
+                ),
+                _buildOptionField('取样类型'),
+                const SizedBox(
+                  height: 14,
+                ),
+                _buildStringTextField('取样序号')
+              ],
             ),
           ),
         ),

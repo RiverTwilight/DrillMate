@@ -182,9 +182,8 @@ class _MorePageState extends ConsumerState<MorePage>
         ListTile(
           leading: const Icon(Icons.backup_rounded),
           title: Text(
-            t.moreTab.actions.sync,
+            "消息中心",
           ),
-          // subtitle: Text(t.moreTab.general.feedbackIntro),
           trailing: const Icon(Icons.arrow_forward_ios, size: 18),
           onTap: () async {
             Navigator.push(

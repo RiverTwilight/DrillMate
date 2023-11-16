@@ -21,6 +21,7 @@ class ProjectLibraryPage extends ConsumerStatefulWidget {
 class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
   String dropdownValue = 'Recently';
   List<Project> projects = [];
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -36,6 +37,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
 
     setState(() {
       projects = fetchedProjects;
+      _isLoading = false;
     });
   }
 
@@ -124,76 +126,81 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
       appBar: _buildAppBar(context),
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 2.0),
-          child: Stack(
-            children: [
-              RefreshIndicator(
-                onRefresh: _refreshData,
-                child: ListView(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  children: <Widget>[
-                    // Padding(
-                    //   padding: EdgeInsets.symmetric(horizontal: 12),
-                    //   child: Row(
-                    //     children: [
-                    //       Text(
-                    //         'Recently Viewed',
-                    //         style: TextStyle(
-                    //             fontSize: 20, fontWeight: FontWeight.bold),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    projects.isNotEmpty
-                        ? GridView.builder(
-                            padding: const EdgeInsets.all(8.0),
-                            itemCount: projects.length,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        max(1, (width / 400).truncate()),
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 6,
-                                    childAspectRatio:
-                                        width < 600 ? 200 / 88 : 200 / 50),
-                            itemBuilder: (context, index) {
-                              return ProjectItem(
-                                project: projects[index],
-                                onEdit: (Project project) {
-                                  // Handle edit action
-                                },
-                                onDelete: (Project project) {
-                                  // Handle delete action
-                                },
-                              );
-                            },
-                          )
-                        : Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(
-                                  height: 120,
+          child: _isLoading
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Stack(
+                  children: [
+                    RefreshIndicator(
+                      onRefresh: _refreshData,
+                      child: ListView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        children: <Widget>[
+                          // Padding(
+                          //   padding: EdgeInsets.symmetric(horizontal: 12),
+                          //   child: Row(
+                          //     children: [
+                          //       Text(
+                          //         'Recently Viewed',
+                          //         style: TextStyle(
+                          //             fontSize: 20, fontWeight: FontWeight.bold),
+                          //       ),
+                          //     ],
+                          //   ),
+                          // ),
+                          projects.isNotEmpty
+                              ? GridView.builder(
+                                  padding: const EdgeInsets.all(8.0),
+                                  itemCount: projects.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount:
+                                              max(1, (width / 400).truncate()),
+                                          crossAxisSpacing: 10,
+                                          mainAxisSpacing: 6,
+                                          childAspectRatio: width < 600
+                                              ? 200 / 88
+                                              : 200 / 50),
+                                  itemBuilder: (context, index) {
+                                    return ProjectItem(
+                                      project: projects[index],
+                                      onEdit: (Project project) {
+                                        // Handle edit action
+                                      },
+                                      onDelete: (Project project) {
+                                        // Handle delete action
+                                      },
+                                    );
+                                  },
+                                )
+                              : Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(
+                                        height: 120,
+                                      ),
+                                      Text(
+                                        t.projectLibraryTab.emptyHint.title,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium,
+                                      ),
+                                      Text(t.projectLibraryTab.emptyHint.body)
+                                    ],
+                                  ),
                                 ),
-                                Text(
-                                  t.projectLibraryTab.emptyHint.title,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                ),
-                                Text(t.projectLibraryTab.emptyHint.body)
-                              ],
-                            ),
+                          const SizedBox(
+                            height: 70,
                           ),
-                    const SizedBox(
-                      height: 70,
+                        ],
+                      ),
                     ),
                   ],
-                ),
-              ),
-            ],
-          )),
+                )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_rounded),
         onPressed: () {
