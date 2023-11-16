@@ -2,12 +2,6 @@
 
 ## Contribution
 
-### Before Submitting for Review...
-
--   Make sure change all sandbox API to production
--   Make sure add limitation for free account
--   Make sure remove test features
-
 ### Run Builder
 
 ```bash

@@ -162,7 +162,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                                           crossAxisSpacing: 10,
                                           mainAxisSpacing: 6,
                                           childAspectRatio: width < 600
-                                              ? 200 / 88
+                                              ? 200 / 76
                                               : 200 / 50),
                                   itemBuilder: (context, index) {
                                     return ProjectItem(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/pages/hole_list_page.dart';
 import 'package:hgeology_app/pages/project_detail_page.dart';
+import 'package:intl/intl.dart';
 
 class ProjectItem extends StatelessWidget {
   final Project project;
@@ -43,22 +44,27 @@ class ProjectItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              Text(
-                project.createdOn ??
-                    'Unknown date', // Fallback if createdOn is null
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
-              ),
-              SizedBox(height: 6),
-              Text(
-                project.projectSerialNumber ??
-                    'No serial number', // Fallback if projectSerialNumber is null
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
+              Row(
+                children: [
+                  Text(
+                    DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.parse(project
+                            .createdOn ??
+                        "1970-01-01 00:00:00")), // Fallback if createdOn is null
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(width: 18),
+                  Text(
+                    project.projectSerialNumber ??
+                        'No serial number', // Fallback if projectSerialNumber is null
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 12),
               Row(
