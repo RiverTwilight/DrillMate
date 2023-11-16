@@ -8,7 +8,6 @@ class ProjectItem extends StatelessWidget {
   final Project project;
   final Function(Project) onEdit;
   final Function(Project) onDelete;
-
   const ProjectItem({
     required this.project,
     required this.onEdit,
@@ -57,8 +56,7 @@ class ProjectItem extends StatelessWidget {
                   ),
                   SizedBox(width: 18),
                   Text(
-                    project.projectSerialNumber ??
-                        'No serial number', // Fallback if projectSerialNumber is null
+                    project.projectSerialNumber ?? 'No serial number',
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey,
