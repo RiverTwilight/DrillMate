@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class NewWaterLevelRecordPage extends ConsumerStatefulWidget {
   final SharedMedia? sharePayload;
@@ -163,7 +164,8 @@ class _NewWaterLevelRecordPageState
                 height: 12,
               ),
               ListTile(
-                title: Text('记录时间: ${_recordTime.toIso8601String()}'),
+                title: Text(
+                    '记录时间: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(_recordTime)}'),
                 trailing: const Icon(Icons.calendar_today),
                 onTap: () async {
                   final DateTime? picked = await showDatePicker(
