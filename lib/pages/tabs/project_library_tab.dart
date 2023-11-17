@@ -22,6 +22,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
   String dropdownValue = 'Recently';
   List<Project> projects = [];
   bool _isLoading = true;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -101,7 +102,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                 MaterialPageRoute(builder: (context) => const SearchPage()),
               );
             },
-            icon: const Icon(Icons.search))
+            icon: const Icon(Icons.map_rounded))
       ],
     );
   }
@@ -149,6 +150,15 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
                           //     ],
                           //   ),
                           // ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12),
+                            child: TextFormField(
+                              controller: _searchController,
+                              decoration: InputDecoration(
+                                hintText: t.searchPage.inputHint,
+                              ),
+                            ),
+                          ),
                           projects.isNotEmpty
                               ? GridView.builder(
                                   padding: const EdgeInsets.all(8.0),

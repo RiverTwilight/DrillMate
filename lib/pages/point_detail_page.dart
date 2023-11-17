@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hgeology_app/pages/form/new_hole_page.dart';
+import 'package:hgeology_app/pages/form/new_mark_record_page.dart';
+import 'package:hgeology_app/pages/form/new_sample_record_page.dart';
 import 'package:hgeology_app/pages/form/stop_hole_apply_page.dart';
+import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -92,14 +96,64 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
       activeIcon: Icons.close,
       children: [
         SpeedDialChild(
-          child: const Icon(Icons.upload),
-          label: 'Upload',
-          onTap: () => print('Upload Pressed'),
+          child: const Icon(Icons.drive_file_rename_outline_rounded),
+          label: '回尺记录',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewBackRulerRecordPage(),
+              ),
+            );
+          },
         ),
         SpeedDialChild(
-          child: const Icon(Icons.add),
-          label: 'Add',
-          onTap: () => print('Add Pressed'),
+          child: const Icon(Icons.grain),
+          label: '岩土记录',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewBackRulerRecordPage(),
+              ),
+            );
+          },
+        ),
+        SpeedDialChild(
+          child: const Icon(Icons.water),
+          label: '水位记录',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewWaterLevelRecordPage(),
+              ),
+            );
+          },
+        ),
+        SpeedDialChild(
+          child: const Icon(Icons.label),
+          label: '标贯记录',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewMarkRecordPage(),
+              ),
+            );
+          },
+        ),
+        SpeedDialChild(
+          child: const Icon(Icons.sell_sharp),
+          label: '取样记录',
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewSampleRecordPage(),
+              ),
+            );
+          },
         ),
       ],
     );

@@ -32,16 +32,19 @@ class _HoleItemState extends State<HoleItem> {
       elevation: 1,
       child: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HoleDetailPage(),
-            ),
-          );
+          if (_showActions) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HoleDetailPage(),
+              ),
+            );
+          } else {
+            _toggleActions();
+          }
           // if (_showActions) {
           //   widget.onNavigate(widget.hole);
           // } else {
-          //   _toggleActions();
           // }
         },
         child: Padding(

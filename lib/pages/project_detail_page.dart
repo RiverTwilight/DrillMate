@@ -2,12 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
-import 'package:hgeology_app/pages/form/new_mark_record_page.dart';
-import 'package:hgeology_app/pages/new_back_ruler_page.dart';
+import 'package:hgeology_app/pages/hole_list_page.dart';
 import 'package:hgeology_app/pages/new_live_shot_page.dart';
-import 'package:hgeology_app/pages/new_rock_record_page.dart';
-import 'package:hgeology_app/pages/form/new_sample_record_page.dart';
-import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/custom_data_table.dart';
@@ -104,327 +100,220 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
     );
   }
 
-  void _transcribe(BuildContext context) {}
-
-  void _delete(BuildContext context) {}
-
-  void _rename(BuildContext context) {}
-
-  void _share(BuildContext context) async {}
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return Stack(children: [
-      Scaffold(
-        resizeToAvoidBottomInset: true,
-        appBar: AppBar(
-          leading: const LeadingBackButton(),
-          title: width < 600 ? null : Text(_video!.title),
-          actions: width < 600
-              ? <Widget>[
-                  PopupMenuButton<String>(
-                    icon: const Icon(Icons.add),
-                    onSelected: (value) {
-                      switch (value) {
-                        case "BackRuler":
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const NewBackRulerRecordPage(),
-                            ),
-                          );
-                          break;
-                        case "WaterLevel":
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const NewWaterLevelRecordPage(),
-                            ),
-                          );
-                          break;
-                        case "Sample":
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NewSampleRecordPage(),
-                            ),
-                          );
-                          break;
-                        case "Rock":
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NewRockRecordPage(),
-                            ),
-                          );
-                          break;
-                        case "Mark":
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NewMarkRecordPage(),
-                            ),
-                          );
-                          break;
-                      }
-                    },
-                    itemBuilder: (BuildContext context) =>
-                        <PopupMenuEntry<String>>[
-                      PopupMenuItem<String>(
-                        value: 'BackRuler',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text("回尺记录"),
-                          leading: const Icon(
-                              Icons.drive_file_rename_outline_rounded),
+    return Stack(
+      children: [
+        Scaffold(
+          resizeToAvoidBottomInset: true,
+          appBar: AppBar(
+            leading: const LeadingBackButton(),
+            title: width < 600 ? null : Text(_video!.title),
+            elevation: 0.0,
+            backgroundColor: Theme.of(context).canvasColor,
+          ),
+          body: _project == null
+              ? const Center(child: CircularProgressIndicator())
+              : LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        _buildTopCard(),
+                        SizedBox(
+                          height: 12,
                         ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Rock',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text("岩土记录"),
-                          leading: const Icon(Icons.grain),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'WaterLevel',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text("水位记录"),
-                          leading: const Icon(Icons.water),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Mark',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text("标贯记录"),
-                          leading: const Icon(Icons.share),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Sample',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text("取样记录"),
-                          leading: const Icon(Icons.sell_sharp),
-                        ),
-                      ),
-                    ],
-                  ),
-                ]
-              : <Widget>[
-                  TextButton.icon(
-                    onPressed: () {
-                      _rename(context);
-                    },
-                    icon: const Icon(Icons.edit),
-                    label: Text(t.general.rename),
-                  ),
-                  TextButton.icon(
-                    onPressed: () {
-                      _transcribe(context);
-                    },
-                    icon: const Icon(Icons.mic_rounded),
-                    label: Text(t.mediaDetailPage.appBarActions.transcribe),
-                  ),
-                  PopupMenuButton<String>(
-                    icon: const Icon(Icons.more_vert_rounded),
-                    onSelected: (value) {
-                      switch (value) {
-                        case 'Delete':
-                          _delete(context);
-                          break;
-                        case "Share":
-                          _share(context);
-                          break;
-                      }
-                    },
-                    itemBuilder: (BuildContext context) =>
-                        <PopupMenuEntry<String>>[
-                      PopupMenuItem<String>(
-                        value: 'Replace',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text(t.mediaDetailPage.appBarActions.replace),
-                          leading: const Icon(Icons.switch_video_rounded),
-                        ),
-                      ),
-                      PopupMenuItem<String>(
-                        value: 'Delete',
-                        padding: const EdgeInsets.all(0),
-                        child: ListTile(
-                          title: Text(
-                            t.general.deleteStr,
-                            style: const TextStyle(color: Colors.red),
-                          ),
-                          leading: const Icon(
-                            Icons.delete_rounded,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-          elevation: 0.0,
-          backgroundColor: Theme.of(context).canvasColor,
-        ),
-        body: _project == null
-            ? const Center(child: CircularProgressIndicator())
-            : LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                return Column(
-                  children: <Widget>[
-                    _buildTopCard(),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: Column(children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                                child: CardBase(
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const NewLiveShotPage(),
-                                    ),
-                                  );
-                                },
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8),
-                                  child: Column(children: [
-                                    Icon(
-                                      Icons.camera_alt,
-                                      color: Colors.blue[800],
-                                    ),
-                                    Text("现场拍照"),
-                                  ]),
-                                ),
-                              ),
-                            )),
-                            Expanded(
-                              child: CardBase(
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: Column(children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Expanded(
+                                    child: CardBase(
                                   child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NewLiveShotPage(),
+                                        ),
+                                      );
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Column(children: [
+                                        Icon(
+                                          Icons.camera_alt,
+                                          color: Colors.blue[800],
+                                        ),
+                                        Text("现场拍照"),
+                                      ]),
+                                    ),
+                                  ),
+                                )),
+                                Expanded(
+                                  child: CardBase(
+                                      child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NewLiveShotPage(),
+                                        ),
+                                      );
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Column(children: [
+                                        Icon(
+                                          Icons.camera,
+                                          color: Colors.orange[600],
+                                        ),
+                                        Text("岩芯拍照"),
+                                      ]),
+                                    ),
+                                  )),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            CardBase(
+                              child: InkWell(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: ListTile(
+                                    title: Text(
+                                      "项目成员",
+                                    ),
+                                    leading: const Icon(
+                                      Icons.group,
+                                    ),
+                                    trailing: const Icon(
+                                      Icons.arrow_forward_ios_sharp,
+                                      size: 12,
+                                    ),
+                                  ),
+                                ),
                                 onTap: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          const NewLiveShotPage(),
+                                      builder: (context) => HoleListPage(),
                                     ),
                                   );
                                 },
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8),
-                                  child: Column(children: [
-                                    Icon(
-                                      Icons.camera,
-                                      color: Colors.orange[600],
+                              ),
+                            ),
+                            CardBase(
+                              child: InkWell(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: ListTile(
+                                    title: Text(
+                                      "钻孔分布",
                                     ),
-                                    Text("岩芯拍照"),
-                                  ]),
+                                    leading: const Icon(
+                                      Icons.map,
+                                    ),
+                                    trailing: const Icon(
+                                      Icons.arrow_forward_ios_sharp,
+                                      size: 12,
+                                    ),
+                                  ),
                                 ),
-                              )),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "项目成员",
-                                ),
-                                leading: const Icon(
-                                  Icons.group,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
+                                onTap: () {},
                               ),
                             ),
-                            onTap: () {},
-                          ),
-                        ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "综合地图",
+                            CardBase(
+                              child: InkWell(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: ListTile(
+                                    title: Text(
+                                      "勘探列表",
+                                    ),
+                                    leading: const Icon(
+                                      Icons.group,
+                                    ),
+                                    trailing: const Icon(
+                                      Icons.arrow_forward_ios_sharp,
+                                      size: 12,
+                                    ),
+                                  ),
                                 ),
-                                leading: const Icon(
-                                  Icons.map,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
+                                onTap: () {},
                               ),
                             ),
-                            onTap: () {},
-                          ),
-                        ),
-                        CardBase(
-                          child: InkWell(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: ListTile(
-                                title: Text(
-                                  "项目进度与工点列表",
+                            CardBase(
+                              child: InkWell(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: ListTile(
+                                    title: Text(
+                                      "勘探文档",
+                                    ),
+                                    leading: const Icon(
+                                      Icons.group,
+                                    ),
+                                    trailing: const Icon(
+                                      Icons.arrow_forward_ios_sharp,
+                                      size: 12,
+                                    ),
+                                  ),
                                 ),
-                                leading: const Icon(
-                                  Icons.group,
-                                ),
-                                trailing: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  size: 12,
-                                ),
+                                onTap: () {},
                               ),
                             ),
-                            onTap: () {},
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        CustomDataTable(
-                          data: [
-                            MapEntry("项目编号", "234523XG324"),
-                            MapEntry("负责人/创建人", "王武"),
-                            MapEntry("负责单位", "中建三局"),
-                            MapEntry("工程类别", "地铁勘查类"),
-                            MapEntry("经度", "14.51"),
-                            MapEntry("纬度", "51.52"),
-                          ],
+                            CardBase(
+                              child: InkWell(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: ListTile(
+                                    title: Text(
+                                      "项目进度",
+                                    ),
+                                    leading: const Icon(
+                                      Icons.group,
+                                    ),
+                                    trailing: const Icon(
+                                      Icons.arrow_forward_ios_sharp,
+                                      size: 12,
+                                    ),
+                                  ),
+                                ),
+                                onTap: () {},
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            CustomDataTable(
+                              data: [
+                                MapEntry("项目编号", "234523XG324"),
+                                MapEntry("负责人/创建人", "王武"),
+                                MapEntry("负责单位", "中建三局"),
+                                MapEntry("工程类别", "地铁勘查类"),
+                                MapEntry("经度", "14.51"),
+                                MapEntry("纬度", "51.52"),
+                              ],
+                            )
+                          ]),
                         )
-                      ]),
-                    )
-                  ],
-                );
-              }),
-      ),
-    ]);
+                      ],
+                    ),
+                  );
+                }),
+        ),
+      ],
+    );
   }
 }
