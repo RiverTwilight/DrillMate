@@ -105,6 +105,10 @@ class _StopHoleApplyPageState extends ConsumerState<StopHoleApplyPage> {
                 decoration: InputDecoration(labelText: '终止时间'),
                 readOnly: true,
               ),
+              const SizedBox(
+                height: 18,
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("确认终止"))
             ],
           ),
         ),

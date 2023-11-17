@@ -14,7 +14,6 @@ import 'package:hgeology_app/services/media_controller.dart';
 import 'package:hgeology_app/utils/link_generator.dart';
 import 'package:hgeology_app/utils/url_checker.dart';
 import 'package:uuid/uuid.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
 import 'package:hgeology_app/gen/strings.g.dart';

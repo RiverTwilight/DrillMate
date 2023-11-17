@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/hole.dart';
@@ -55,12 +53,24 @@ class _HoleLibraryPageState extends ConsumerState<HoleLibraryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.0),
-        child: RefreshIndicator(
-          onRefresh: _refreshData,
-          child: _holes.isNotEmpty
-              ? ListView.builder(
+      body: _holes.isEmpty
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '没有最近项目',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  Text('Please add new holes or refresh'),
+                ],
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: RefreshIndicator(
+                onRefresh: _refreshData,
+                child: ListView.builder(
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemCount: _holes.length,
                   itemBuilder: (ctx, i) => HoleItem(
@@ -69,23 +79,9 @@ class _HoleLibraryPageState extends ConsumerState<HoleLibraryPage> {
                       // Navigate to HoleDetailPage or perform another action
                     },
                   ),
-                )
-              : Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 120),
-                      Text(
-                        'No holes found', // Update with your actual text
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                      Text(
-                          'Please add new holes or refresh'), // Update with your actual text
-                    ],
-                  ),
                 ),
-        ),
-      ),
+              ),
+            ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_rounded),
         onPressed: () {
