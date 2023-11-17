@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/models/video.dart';
 import 'package:hgeology_app/pages/new_project_page.dart';
+import 'package:hgeology_app/pages/project_map_page.dart';
 import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/pages/search_page.dart';
 import 'package:hgeology_app/services/project_service.dart';
@@ -99,7 +100,7 @@ class _ProjectLibraryPageState extends ConsumerState<ProjectLibraryPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SearchPage()),
+                MaterialPageRoute(builder: (context) => const ProjectMapPage()),
               );
             },
             icon: const Icon(Icons.map_rounded))

@@ -146,7 +146,7 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2, // Number of tabs
+      length: 2,
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
