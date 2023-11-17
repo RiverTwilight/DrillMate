@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hgeology_app/pages/about_page.dart';
 import 'package:hgeology_app/pages/backup_page.dart';
 import 'package:hgeology_app/pages/settings_page.dart';
+import 'package:hgeology_app/widget/card_base.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:hgeology_app/provider/data_provider.dart';
 import 'package:hgeology_app/utils/contact.dart';
@@ -192,31 +193,31 @@ class _MorePageState extends ConsumerState<MorePage>
             );
           },
         ),
-        const SizedBox(height: 12),
-        ListTile(
-          // leading: Icon(Icons.rate_review),
-          title: Text(
-            t.moreTab.actions.rate,
-          ),
-          // subtitle: Text(t.moreTab.rateIntro),
-          trailing: const Icon(Icons.open_in_new_sharp, size: 18),
-          onTap: () {
-            rateApp();
-          },
-        ),
-        ListTile(
-          title: Text(
-            t.moreTab.general.about,
-          ),
-          subtitle: Text(t.moreTab.general.aboutIntro),
-          trailing: const Icon(Icons.arrow_forward_ios, size: 18),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AboutPage()),
-            );
-          },
-        ),
+        // const SizedBox(height: 12),
+        // ListTile(
+        //   // leading: Icon(Icons.rate_review),
+        //   title: Text(
+        //     t.moreTab.actions.rate,
+        //   ),
+        //   // subtitle: Text(t.moreTab.rateIntro),
+        //   trailing: const Icon(Icons.open_in_new_sharp, size: 18),
+        //   onTap: () {
+        //     rateApp();
+        //   },
+        // ),
+        // ListTile(
+        //   title: Text(
+        //     t.moreTab.general.about,
+        //   ),
+        //   subtitle: Text(t.moreTab.general.aboutIntro),
+        //   trailing: const Icon(Icons.arrow_forward_ios, size: 18),
+        //   onTap: () {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => AboutPage()),
+        //     );
+        //   },
+        // ),
         const SizedBox(height: 20),
         if (appVersion != null) // Check that appVersion is not null
           Align(
@@ -238,7 +239,7 @@ class _MorePageState extends ConsumerState<MorePage>
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: Text("更多"),
+        title: const Text("更多"),
       ),
       body: Align(
         alignment: Alignment.topCenter,
@@ -252,7 +253,15 @@ class _MorePageState extends ConsumerState<MorePage>
                 physics:
                     const AlwaysScrollableScrollPhysics(), // This ensures the list is always scrollable
                 children: <Widget>[
-                  // const SizedBox(height: 30),
+                  CardBase(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        // Replace with your avatar image source
+                        backgroundImage: AssetImage('assets/images/avatar.png'),
+                      ),
+                      title: Text('陈志龙'), // Replace with your nickname source
+                    ),
+                  ),
                   _buildAdditionalPart(ref),
                   const SizedBox(height: 30),
                 ],

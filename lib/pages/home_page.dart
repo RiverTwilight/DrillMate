@@ -32,7 +32,7 @@ List<CustomBottomNavigationBarItem> bottomNavigationBarItems = [
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[1].icon,
-    title: t.holeListTab.tabName,
+    title: "最近",
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[2].icon,
@@ -40,7 +40,7 @@ List<CustomBottomNavigationBarItem> bottomNavigationBarItems = [
   ),
   CustomBottomNavigationBarItem(
     icon: HomeTab.values[3].icon,
-    title: t.moreTab.title,
+    title: "我的",
   )
 ];
 

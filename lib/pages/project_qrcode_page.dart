@@ -60,7 +60,7 @@ class _ProjectQRcodePageState extends ConsumerState<ProjectQRcodePage> {
                 onPressed: () {
                   // Implement the scanning functionality here
                 },
-                child: const Text('Scan Qrcode'),
+                child: const Text('扫描二维码'),
               ),
             ),
           ],
