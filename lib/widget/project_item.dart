@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hgeology_app/models/project.dart';
 import 'package:hgeology_app/pages/hole_list_page.dart';
 import 'package:hgeology_app/pages/project_detail_page.dart';
+import 'package:hgeology_app/pages/project_qrcode_page.dart';
 import 'package:intl/intl.dart';
 
 class ProjectItem extends StatelessWidget {
@@ -35,34 +36,55 @@ class ProjectItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                project.projectName ?? 'No name',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 6),
               Row(
                 children: [
-                  Text(
-                    DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.parse(project
-                            .createdOn ??
-                        "1970-01-01 00:00:00")), // Fallback if createdOn is null
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        project.projectName ?? 'No name',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Text(
+                            DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                DateTime.parse(project.createdOn ??
+                                    "1970-01-01 00:00:00")),
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          SizedBox(width: 18),
+                          Text(
+                            project.projectSerialNumber ?? 'No serial number',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(width: 18),
-                  Text(
-                    project.projectSerialNumber ?? 'No serial number',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ProjectQRcodePage(projectId: "asdfasdf"),
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.qr_code))
                 ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
               const SizedBox(height: 12),
               Row(
