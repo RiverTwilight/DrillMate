@@ -42,10 +42,6 @@ class _HoleItemState extends State<HoleItem> {
           } else {
             _toggleActions();
           }
-          // if (_showActions) {
-          //   widget.onNavigate(widget.hole);
-          // } else {
-          // }
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -98,7 +94,14 @@ class _HoleItemState extends State<HoleItem> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _actionButton(context, Icons.mic, '记录', () {}),
+                    _actionButton(context, Icons.mic, '记录', () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HoleDetailPage(),
+                        ),
+                      );
+                    }),
                     _actionButton(context, Icons.cloud_upload, '上传', () {}),
                     _actionButton(context, Icons.bar_chart, '图表', () {}),
                     _actionButton(context, Icons.more_horiz, '更多', () {}),

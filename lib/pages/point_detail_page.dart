@@ -3,6 +3,7 @@ import 'package:hgeology_app/pages/form/new_hole_page.dart';
 import 'package:hgeology_app/pages/form/new_mark_record_page.dart';
 import 'package:hgeology_app/pages/form/new_sample_record_page.dart';
 import 'package:hgeology_app/pages/form/stop_hole_apply_page.dart';
+import 'package:hgeology_app/pages/new_rock_record_page.dart';
 import 'package:hgeology_app/pages/new_water_level_record_page.dart';
 import 'package:hgeology_app/widget/card_base.dart';
 import 'package:hgeology_app/widget/leading_back_button.dart';
@@ -114,7 +115,7 @@ class _HoleDetailPageState extends ConsumerState<HoleDetailPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const NewBackRulerRecordPage(),
+                builder: (context) => const NewRockRecordPage(),
               ),
             );
           },

@@ -242,7 +242,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                                       "勘探列表",
                                     ),
                                     leading: const Icon(
-                                      Icons.group,
+                                      Icons.list,
                                     ),
                                     trailing: const Icon(
                                       Icons.arrow_forward_ios_sharp,
@@ -262,7 +262,7 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                                       "勘探文档",
                                     ),
                                     leading: const Icon(
-                                      Icons.group,
+                                      Icons.book,
                                     ),
                                     trailing: const Icon(
                                       Icons.arrow_forward_ios_sharp,
