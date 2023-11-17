@@ -128,61 +128,61 @@ class _ProjectDetailPageState extends ConsumerState<ProjectDetailPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Column(children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Expanded(
-                                    child: CardBase(
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const NewLiveShotPage(),
-                                        ),
-                                      );
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8),
-                                      child: Column(children: [
-                                        Icon(
-                                          Icons.camera_alt,
-                                          color: Colors.blue[800],
-                                        ),
-                                        Text("现场拍照"),
-                                      ]),
-                                    ),
-                                  ),
-                                )),
-                                Expanded(
-                                  child: CardBase(
-                                      child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const NewLiveShotPage(),
-                                        ),
-                                      );
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8),
-                                      child: Column(children: [
-                                        Icon(
-                                          Icons.camera,
-                                          color: Colors.orange[600],
-                                        ),
-                                        Text("岩芯拍照"),
-                                      ]),
-                                    ),
-                                  )),
-                                ),
-                              ],
-                            ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //   children: [
+                            //     Expanded(
+                            //         child: CardBase(
+                            //       child: InkWell(
+                            //         onTap: () {
+                            //           Navigator.push(
+                            //             context,
+                            //             MaterialPageRoute(
+                            //               builder: (context) =>
+                            //                   const NewLiveShotPage(),
+                            //             ),
+                            //           );
+                            //         },
+                            //         child: Padding(
+                            //           padding: const EdgeInsets.symmetric(
+                            //               vertical: 8),
+                            //           child: Column(children: [
+                            //             Icon(
+                            //               Icons.camera_alt,
+                            //               color: Colors.blue[800],
+                            //             ),
+                            //             Text("现场拍照"),
+                            //           ]),
+                            //         ),
+                            //       ),
+                            //     )),
+                            //     Expanded(
+                            //       child: CardBase(
+                            //           child: InkWell(
+                            //         onTap: () {
+                            //           Navigator.push(
+                            //             context,
+                            //             MaterialPageRoute(
+                            //               builder: (context) =>
+                            //                   const NewLiveShotPage(),
+                            //             ),
+                            //           );
+                            //         },
+                            //         child: Padding(
+                            //           padding: const EdgeInsets.symmetric(
+                            //               vertical: 8),
+                            //           child: Column(children: [
+                            //             Icon(
+                            //               Icons.camera,
+                            //               color: Colors.orange[600],
+                            //             ),
+                            //             Text("岩芯拍照"),
+                            //           ]),
+                            //         ),
+                            //       )),
+                            //     ),
+                            //   ],
+                            // ),
                             const SizedBox(
                               height: 12,
                             ),

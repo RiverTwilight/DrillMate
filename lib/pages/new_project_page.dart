@@ -32,113 +32,33 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
   bool _isProcessing = false;
   String? _errorText;
   final TextEditingController _searchController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _serialNumberController = TextEditingController();
+  final TextEditingController _managerIdController = TextEditingController();
+  String? _selectedCategory;
+  String? _selectedState;
+  String? _selectedGrade;
 
   @override
   void initState() {
     super.initState();
   }
 
-  void _showSuccessSnackbar() async {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          t.newMediaPage.finishImport,
-          style: const TextStyle(fontSize: 16),
-        ),
-        duration: const Duration(seconds: 2),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        action: SnackBarAction(
-          label: t.general.view,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
-  void _showErrorSnackbar() async {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          t.newMediaPage.importError,
-          style: const TextStyle(fontSize: 16),
-        ),
-        duration: const Duration(seconds: 2),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-    );
-  }
-
-  void handleFinishImport() async {
-    if (context.mounted) {
-      _showSuccessSnackbar();
-    }
-  }
-
-  Future<void> _addFileToDatabase(String path, WidgetRef ref,
-      {String? name}) async {
-    final videoManager = ref.read(videoProvider);
-
-    try {
-      // String newId = const Uuid().v4();
-
-      // Video media = Video(
-      //   id: newId,
-      //   title: name ?? p.basename(path),
-      //   sourceUrl: newPath,
-      //   thumbnailUrl: '',
-      //   createDate: DateTime.now(),
-      //   lastOpendedDate: DateTime.now(),
-      // );
-
-      // await videoManager.addVideo(media);
-
-      // handleFinishImport();
-    } catch (e) {
-      _showErrorSnackbar();
-    }
-  }
-
-  bool get isAvaliable {
-    final videos = ref.read(videoProvider).videos;
-
-    return !(videos.length > maxMediaCountForFreeAccount &&
-        !DataProvider().isPlus);
-  }
-
-  void handleNoPermission() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(t.newMediaPage.permission.title),
-          content: Text(t.newMediaPage.permission.body),
-          actions: [
-            TextButton(
-              child: Text(t.newMediaPage.permission.upgrade),
-              onPressed: () {},
-            ),
-            TextButton(
-              child: Text(t.general.cancel),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
+  Widget _buildDropdown(String label, Map<String, String> options,
+      ValueChanged<String?> onChanged) {
+    return DropdownButtonFormField<String>(
+      decoration: InputDecoration(labelText: label),
+      value: options.values
+          .first, // Set the initial value to the first value of the options map
+      onChanged: onChanged,
+      items: options.entries
+          .map((entry) => DropdownMenuItem<String>(
+                value: entry.value,
+                child: Text(entry.key),
+              ))
+          .toList(),
+      validator: (value) => value == null ? 'Please select a $label' : null,
     );
   }
 
@@ -163,8 +83,99 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
         body: TabBarView(children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 6),
-            child: Flexible(
-              child: Column(children: []),
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  TextFormField(
+                    controller: _nameController,
+                    decoration: const InputDecoration(labelText: '项目名称'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter project name';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  TextFormField(
+                    controller: _serialNumberController,
+                    decoration: const InputDecoration(labelText: '项目序列号'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter project serial number';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  TextFormField(
+                    controller: _managerIdController,
+                    decoration: const InputDecoration(labelText: '项目经理ID'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter project manager ID';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  _buildDropdown(
+                    '项目分类',
+                    {
+                      '地铁勘察类': 'Subway Survey',
+                      '房建勘察类': 'House Building Survey',
+                      '市政勘察类': 'Municipal Survey',
+                      '规划勘察类': 'Planning Survey',
+                      '桥梁勘察': 'Bridge Survey',
+                      '机场勘察类': 'Airport Survey',
+                      '公路勘察类': 'Highway Survey',
+                    },
+                    (newValue) => setState(() => _selectedCategory = newValue),
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  _buildDropdown(
+                    '项目阶段',
+                    {
+                      '初勘阶段': 'Initial Survey',
+                      '详勘阶段': 'Detailed Survey',
+                      '施工配合': 'Construction Cooperation',
+                    },
+                    (newValue) => setState(() => _selectedState = newValue),
+                  ),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  _buildDropdown(
+                    '项目等级',
+                    {
+                      '甲级': 'Grade A',
+                      '乙级': 'Grade B',
+                      '丙级': 'Grade C',
+                    },
+                    (newValue) => setState(() => _selectedGrade = newValue),
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        // Process form data
+                      }
+                    },
+                    child: const Text('提交'),
+                  ),
+                ],
+              ),
             ),
           ),
           Padding(
