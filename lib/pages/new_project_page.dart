@@ -13,10 +13,6 @@ import 'package:hgeology_app/provider/settings_provider.dart';
 import 'package:hgeology_app/services/media_controller.dart';
 import 'package:hgeology_app/utils/link_generator.dart';
 import 'package:hgeology_app/utils/url_checker.dart';
-import 'package:hgeology_app/widget/card_base.dart';
-import 'package:hgeology_app/widget/custom_bottomsheet.dart';
-import 'package:hgeology_app/widget/tip_text.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hgeology_app/provider.dart';
@@ -36,6 +32,7 @@ class NewProjectPage extends ConsumerStatefulWidget {
 class _NewProjectPageState extends ConsumerState<NewProjectPage> {
   bool _isProcessing = false;
   String? _errorText;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -148,8 +145,6 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
 
   @override
   Widget build(BuildContext context) {
-    final videoManager = ref.watch(videoProvider);
-
     return DefaultTabController(
       length: 2, // Number of tabs
       child: Scaffold(
@@ -161,8 +156,8 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
           backgroundColor: Theme.of(context).canvasColor,
           bottom: TabBar(
             tabs: [
-              Tab(text: "手动创建"),
-              Tab(text: "自动导入"),
+              Tab(text: "创建项目"),
+              Tab(text: "加入项目"),
             ],
           ),
         ),
@@ -173,8 +168,41 @@ class _NewProjectPageState extends ConsumerState<NewProjectPage> {
               child: Column(children: []),
             ),
           ),
-          // Join Project
-          const StorePage(),
+          Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 13.0, vertical: 6),
+              child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                        controller: _searchController,
+                        decoration: InputDecoration(hintText: "项目序列号"),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {},
+                        child: const Icon(Icons.arrow_forward),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.qr_code),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text("扫描二维码")
+                            ]),
+                      ),
+                    ]),
+              )),
         ]),
       ),
     );

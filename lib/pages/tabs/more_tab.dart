@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hgeology_app/gen/strings.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hgeology_app/pages/about_page.dart';
 import 'package:hgeology_app/pages/backup_page.dart';
 import 'package:hgeology_app/pages/settings_page.dart';
 import 'package:hgeology_app/widget/card_base.dart';
@@ -11,7 +10,6 @@ import 'package:hgeology_app/utils/contact.dart';
 import 'package:hgeology_app/provider.dart';
 import 'package:hgeology_app/provider/auth_provider.dart';
 import 'package:intl/intl.dart';
-import 'package:hgeology_app/widget/plus_badage.dart';
 
 String convertUnixTimeToLocalDateString(int unixTime) {
   final date = DateTime.fromMillisecondsSinceEpoch(unixTime);

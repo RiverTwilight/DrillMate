@@ -1,11 +1,9 @@
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hgeology_app/pages/tabs/contact_tab.dart';
 import 'package:share_handler/share_handler.dart';
 import 'package:hgeology_app/constants.dart';
 import 'package:hgeology_app/pages/new_project_page.dart';
 import 'package:hgeology_app/pages/tabs/hole_library_tab.dart';
 import 'package:hgeology_app/pages/tabs/more_tab.dart';
-import 'package:hgeology_app/pages/review_page.dart';
 import 'package:hgeology_app/widget/bottom_nav.dart';
 import 'package:hgeology_app/pages/tabs/project_library_tab.dart';
 import 'package:flutter/material.dart';

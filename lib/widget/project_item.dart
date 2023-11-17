@@ -82,7 +82,13 @@ class ProjectItem extends StatelessWidget {
                           ),
                         );
                       },
-                      icon: Icon(Icons.qr_code))
+                      icon: Icon(
+                        Icons.qr_code,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.4),
+                      ))
                 ],
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
               ),
